@@ -1,0 +1,454 @@
+itemGroup.HELL_TAB=HellNod
+
+#---===---#
+#Tooltips
+tooltip.pressShift=§7<Press SHIFT>
+
+#---===---#
+#AE2
+#Blocks
+tile.blockCraftingStorage256K.name=§b256K Crafting Storage
+tile.blockCraftingStorage1M.name=§b1M Crafting Storage
+tile.blockCraftingStorage4M.name=§b4M Crafting Storage
+tile.blockCraftingStorage16M.name=§b16M Crafting Storage
+tile.blockCraftingStorage65M.name=§b65M Crafting Storage
+tile.blockCraftingStorage262M.name=§b262M Crafting Storage
+tile.blockCraftingStorage1G.name=§b1G Crafting Storage
+tile.blockCraftingStorage4G.name=§b4G Crafting Storage
+tile.blockCraftingStorage16G.name=§b16G Crafting Storage
+tile.blockCraftingStorage67G.name=§b67G Crafting Storage
+tile.blockCraftingStorage268G.name=§b268G Crafting Storage
+tile.blockCraftingStorage1T.name=§b1T Crafting Storage
+tile.blockCraftingStorage4T.name=§b4T Crafting Storage
+tile.blockCraftingStorage17T.name=§b17T Crafting Storage
+tile.blockCraftingStorage68T.name=§b68T Crafting Storage
+tile.blockCraftingStorage274T.name=§b274T Crafting Storage
+tile.blockCraftingStorage1P.name=§b1P Crafting Storage
+tile.blockCraftingStorage4P.name=§b4P Crafting Storage
+tile.blockCraftingStorage17P.name=§b17P Crafting Storage
+tile.blockCraftingStorage70P.name=§b70P Crafting Storage
+tile.blockCraftingStorage281P.name=§b281P Crafting Storage
+tile.blockCraftingStorage1E.name=§b1E Crafting Storage
+tile.blockCraftingStorage4E.name=§b4E Crafting Storage
+tile.blockCraftingStorage9E.name=§b9E Crafting Storage
+
+tile.advanced_interface.name=§2Advanced ME Interface
+tile.hybrid_interface.name=§6Hybrid ME Interface
+tile.ultimate_interface.name=§5Ultimate ME Interface
+
+tile.advanced_crafting_accelerator.name=§5Advanced Crafting Co-Processing Unit
+tile.hybrid_crafting_accelerator.name=§5Hybrid Crafting Co-Processing Unit
+tile.ultimate_crafting_accelerator.name=§5Ultimate Crafting Co-Processing Unit
+tile.quantum_crafting_accelerator.name=§5Quantum Crafting Co-Processing Unit
+
+tile.autoCrystallizer.name=Auto crystallizer
+tile.autoPress.name=Auto press
+
+tile.cobblestone_duper.name=Cobblestone duper
+tile.baseMolecularAssembler.name=Base Molecular Assembler
+tile.hybridMolecularAssembler.name=Hybrid Molecular Assembler
+tile.ultimateMolecularAssembler.name=Ultimate Molecular Assembler
+
+#Items
+item.storageComponent256K.name=§b256K ME Storage Component
+item.storageComponent1M.name=§b1M ME Storage Component
+item.storageComponent4M.name=§b4M ME Storage Component
+item.storageComponent16M.name=§b16M ME Storage Component
+item.storageComponent65M.name=§b65M ME Storage Component
+item.storageComponent262M.name=§b262M ME Storage Component
+item.storageComponent1G.name=§b1G ME Storage Component
+item.storageComponent4G.name=§b4G ME Storage Component
+item.storageComponent16G.name=§b16G ME Storage Component
+item.storageComponent67G.name=§b67G ME Storage Component
+item.storageComponent268G.name=§b268G ME Storage Component
+item.storageComponent1T.name=§b1T ME Storage Component
+item.storageComponent4T.name=§b4T ME Storage Component
+item.storageComponent17T.name=§b17T ME Storage Component
+item.storageComponent68T.name=§b68T ME Storage Component
+item.storageComponent274T.name=§b274T ME Storage Component
+item.storageComponent1P.name=§b1P ME Storage Component
+item.storageComponent4P.name=§b4P ME Storage Component
+item.storageComponent17P.name=§b17P ME Storage Component
+item.storageComponent70P.name=§b70P ME Storage Component
+item.storageComponent281P.name=§b281P ME Storage Component
+item.storageComponent1E.name=§b1E ME Storage Component
+item.storageComponent4E.name=§b4E ME Storage Component
+item.storageComponent9E.name=§b9E ME Storage Component
+
+item.part_adv_interface.name=§2Advanced ME Interface
+item.part_hybrid_interface.name=§6Hybrid ME Interface
+item.part_ultimate_interface.name=§5Ultimate ME Interface
+
+item.richSeedsQuartz.name=Enriched quartz seeds
+item.richSeedsCertusQuartz.name=Enriched certus quartz seeds
+item.richSeedsFluixQuartz.name=Enriched fluix quartz seeds
+
+item.advancedEmptyCell.name=ME Advanced Storage Housing
+item.hybridEmptyCell.name=ME Hybrid Storage Housing
+item.ultimateEmptyCell.name=ME Ultimate Storage Housing
+item.quantumEmptyCell.name=ME Quantum Storage Housing
+item.singularEmptyCell.name=ME Singular Storage Housing
+
+item.storageCell256K.name=256K ME Storage Cell
+item.storageCell1M.name=1M ME Storage Cell
+item.storageCell4M.name=4M ME Storage Cell
+item.storageCell16M.name=16M ME Storage Cell
+item.storageCell65M.name=65M ME Storage Cell
+item.storageCell262M.name=262M ME Storage Cell
+item.storageCell1G.name=1G ME Storage Cell
+item.storageCell4G.name=4G ME Storage Cell
+item.storageCell16G.name=16G ME Storage Cell
+item.storageCell67G.name=67G ME Storage Cell
+item.storageCell268G.name=268G ME Storage Cell
+item.storageCell1T.name=1T ME Storage Cell
+item.storageCell4T.name=4T ME Storage Cell
+item.storageCell17T.name=17T ME Storage Cell
+item.storageCell68T.name=68T ME Storage Cell
+item.storageCell274T.name=274T ME Storage Cell
+item.storageCell1P.name=1P ME Storage Cell
+item.storageCell4P.name=4P ME Storage Cell
+item.storageCell17P.name=17P ME Storage Cell
+item.storageCell70P.name=70P ME Storage Cell
+item.storageCell281P.name=281P ME Storage Cell
+item.storageCell9E.name=ME Singular Storage Cell
+
+#Tooltips
+gui.tooltips.appliedenergistics2.PastBtnTitle=Previous craft
+gui.tooltips.appliedenergistics2.PastBtnDesc=Flips craft to previous one
+gui.tooltips.appliedenergistics2.NextBtnTitle=Next craft
+gui.tooltips.appliedenergistics2.NextBtnDesc=Flips craft to next one
+gui.tooltips.appliedenergistics2.ChangeTypeBtnTitle=Change type
+gui.tooltips.appliedenergistics2.ChangeTypeBtnDesc=Changes the type of block for crafting
+gui.tooltips.appliedenergistics2.HighlightInterface=Highlight interface
+gui.tooltips.appliedenergistics2.SearchFieldInputs=Recipe Inputs
+gui.tooltips.appliedenergistics2.SearchFieldOutputs=Recipe Outputs
+gui.tooltips.appliedenergistics2.SearchFieldNames=Interface Names
+chat.appliedenergistics2.InterfaceInOtherDim=Interface located at dimension: %d and cant be highlighted
+chat.appliedenergistics2.InterfaceHighlighted=The interface is now highlighted at %d, %d, %d
+gui.tooltips.appliedenergistics2.ToggleMolecularAssemblers=Toggles showing crafting interfaces only
+gui.tooltips.appliedenergistics2.ToggleMolecularAssemblersDescOff=Showing all interfaces
+gui.tooltips.appliedenergistics2.ToggleMolecularAssemblersDescOn=Showing only interfaces on molecular assemblers
+gui.tooltips.appliedenergistics2.ToggleShowFullInterfaces=Toggles showing interfaces with full slots
+gui.tooltips.appliedenergistics2.ToggleShowFullInterfacesOnDesc=Showing all interfaces
+gui.tooltips.appliedenergistics2.ToggleShowFullInterfacesOffDesc=Showing only interfaces with free slots
+gui.tooltips.appliedenergistics2.ToggleShowOnlyInvalidInterface=Toggles showing interfaces with invalid patterns
+gui.tooltips.appliedenergistics2.ToggleShowOnlyInvalidInterfaceOnDesc=Showing all interfaces
+gui.tooltips.appliedenergistics2.ToggleShowOnlyInvalidInterfaceOffDesc=Showing only interfaces with invalid patterns
+gui.tooltips.appliedenergistics2.HighlightInterface=Highlight interface
+gui.tooltips.appliedenergistics2.SearchFieldInputs=Recipe Inputs
+gui.tooltips.appliedenergistics2.SearchFieldOutputs=Recipe Outputs
+gui.tooltips.appliedenergistics2.SearchFieldNames=Interface Names
+
+tooltip.assembler.speed=§9Produces %s items per second
+tooltip.autoCrystallizer=§9Automates crystal charging, crystal growing, and crystal fluix creation
+tooltip.autoPress=§9Automates crafting of all processors
+tooltip.interface=§9Interface with %s slots§9
+tooltip.accelerators=§9Provide %s of streams
+tooltip.storage.physical.types=%s of %s item types used.
+tooltip.storage.physical.bytes=%s of %s item bytes used.
+tooltip.storage.physical.content=Contains %s items.
+tooltip.storage.fluid.types=%s of %s item types used.
+tooltip.storage.fluid.bytes=%s of %s item bytes used.
+tooltip.storage.fluid.content=Contains %s items.
+tooltip.cobblestoneDuper=§9Fills any storage cell with a cobblestone
+
+#---===---#
+#Avaritia
+#Blocks
+tile.autoNeutroniumCompressor.name=Auto neutronium compressor
+tile.basicNeutronCollector.name=Basic Neutron Collector
+tile.advancedNeutronCollector.name=Advanced Neutron Collector
+tile.hybridNeutronCollector.name=Hybrid Neutron Collector
+tile.ultimateNeutronCollector.name=Ultimate Neutron Collector
+tile.quantiumNeutronCollector.name=Quantum Neutron Collector
+
+#Items
+item.eternitySing.name=§9Eternal Singularity
+item.eternalCatalyst.name=§9Eternal Catalyst
+eternitySing.name=§9Eternal Singularity
+eternalCatalyst.name=§9Eternal Catalyst
+
+item.encoded_big_pattern.name=Encoded big pattern
+item.encoded_neutron_pattern.name=Encoded auto neutron compressor pattern
+
+item.part_big_pattern_terminal.name=ME big pattern terminal
+item.part_crafting_terminal_9x9.name=ME crafting terminal 9x9
+item.part_neutron_compressor_pattern_terminal.name=ME neutron compressor pattern terminal
+
+#Tooltips
+tooltip.autoNeutroniumCompressor=§9Automates neutron compressor. Requires neutron templates
+tooltip.neutronCollector=§9Creating %s %s in %s ticks
+
+#---===---#
+#Draconic Evolution
+#Blocks
+tile.autoAwakener.name=Auto block awakener
+tile.arial_block.name=Arial block
+tile.dragon_assembler.name=Draconic assembler
+
+#Items
+item.upgradeDragonAutoAwakenedBlocks.name=Auto Awakened Blocks Awakened Upgrade
+item.upgradeChaosAutoAwakenedBlocks.name=Auto Awakened Blocks Chaos Upgrade
+item.upgradeArialAutoAwakenedBlocks.name=Auto Awakened Blocks Arial Upgrade
+item.arialCore.name=Arial Core
+item.arialEnergyCore.name=Arial Energy Core
+item.arialHeart.name=Arial Heart
+item.chaoticHeart.name=Chaotic Heart
+item.ingot_chaotic.nameChaotic Ingot
+item.fragment_chaos.name=Chaotic Fragment
+item.chaoticEnergyCore.name=Chaotic Energy Core
+
+item.draconicAssemblerUpgrades.speed_card.name=Draconic Assembler Speed Card
+item.draconicAssemblerUpgrades.stack_card.name=Draconic Assembler Stack Card
+item.draconicAssemblerUpgrades.wyvern_module.name=Draconic Assembler Wywern Module
+item.draconicAssemblerUpgrades.awakened_module.name=Draconic Assembler Awakened Module
+item.draconicAssemblerUpgrades.chaotic_module.name=Draconic Assembler Chaotic Module
+item.draconicAssemblerUpgrades.arial_module.name=Draconic Assembler Arial Module
+item.draconicEnergyUpgrades.wyvern_storage_card.name=Wywern Storage Card
+item.draconicEnergyUpgrades.awakened_storage_card.name=Awakened Storage Card
+item.draconicEnergyUpgrades.chaotic_storage_card.name=Chaotic Storage Card
+item.draconicEnergyUpgrades.arial_storage_card.name=Arial Storage Card
+
+#Tooltips
+tooltip.autoAwakener=§9Automates the awakening of dragon blocks
+tooltip.ArialHeart=§5Used in rutual: §6Ritual of saturation of the arial§5.
+tooltip.ChaosHeart=§5Used in rutual: §6Ritual of saturation of the chaos§5.
+tooltip.Heart.1=§5Put §64 %s§5.
+tooltip.Heart.2=§5Activate Heart, using explosion power.
+tooltip.Heart.3=§5Throw out §6%s %s§5.
+tooltip.Heart.4=§5Wait a End of Ritual.
+
+tooltip.DraconicAssembler.info.energyCost=Energy Cost
+tooltip.DraconicAssembler.tier=Tier
+tooltip.DraconicAssembler.tier0=Draconic
+tooltip.DraconicAssembler.tier1=Wyvern
+tooltip.DraconicAssembler.tier2=Awakened
+tooltip.DraconicAssembler.tier3=Chaotic
+tooltip.DraconicAssembler.tier4=Arial
+crafting.drassembler=Dragon molecular combination
+
+tooltip.speed_card_ass.desc=§a• Speeds up §6%s§a by §l%s times
+tooltip.stack_card_ass.desc=§a• Allows crafting on the stack in §6%s§a
+tooltip.wyvern_module_ass.desc=§a• Increases the level of the §6%s§a crafting slot to §5§lWyvern
+tooltip.awakened_module_ass.desc=§a• Increases the level of the §6%s§a crafting slot to §6§lAwakened
+tooltip.chaotic_module_ass.desc=§a• Increases the level of the §6%s§a crafting slot to §8§lChaos
+tooltip.arial_module_ass.desc=§a• Increases the level of the §6%s§a crafting slot to §8§lArial
+
+tooltip.wyvern_storage_card.desc=§a✦ Increases the energy capacity of §6%s§a to §l%sRF
+tooltip.awakened_storage_card.desc=§a✦ Increases the energy capacity of §6%s§a to §l%sRF
+tooltip.chaotic_storage_card.desc=§a✦ Increases the energy capacity of §6%s§a to §l%sRF
+tooltip.infinity_storage_card.desc=§a✦ Increases the energy capacity of §6%s§a to §l%sRF
+
+tooltip.draconic-assembler.button=Open/close enhancements menu
+tooltip.draconicAssembler.storageAmount of energy:
+
+#---===---#
+#Botania
+#Blocks
+tile.mana_charger.name=§bMana charger
+tile.asgardPool.name=§4Asgard Mana Pool
+tile.helhelmPool.name=§5Helhelm Mana Pool
+tile.valhallaPool.name=§6Valhalla Mana Pool
+tile.midgardPool.name=§3Midgard Mana Pool
+tile.asgardSpreader.name=§4Asgard Mana Spreader
+tile.helhelmSpreader.name=§5Helhelm Mana Spreader
+tile.valhallaSpreader.name=§6Valhalla Mana Spreader
+tile.midgardSpreader.name=§3Midgard Mana Spreader
+
+tile.botania:pool0.name=Mana Pool
+tile.botania:pool1.name=The Everlasting Guilty Pool
+tile.botania:pool2.name=Diluted Mana Pool
+tile.botania:pool3.name=Fabulous Mana Pool
+
+#Items
+item.asgardSpark.name=§4Asgard Spark
+item.helhelmSpark.name=§5Helhelm Spark
+item.valhallaSpark.name=§6Valhalla Spark
+item.midgardSpark.name=§3Midgard Spark
+
+item.asgardianIngot.name=Asgardian Ingot
+item.helheimIngot.name=Helheim Ingot
+item.valhallaIngot.name=Valhalla Ingot
+item.midgardIngot.name=Midgard Ingot
+
+item.encoded_dwimerite_forge_pattern.name=Encoded auto dwimerite forge pattern
+item.encoded_elven_trade_pattern.name=Encoded auto elven trade pattern
+item.encoded_mana_pool_pattern.name=Encoded auto mana pool pattern
+item.encoded_petals_pattern.name=Encoded auto petal apothecary pattern
+item.encoded_pure_daisy_pattern.name=Encoded auto pure daisy pattern
+item.encoded_rune_altar_pattern.name=Encoded auto rune altar pattern
+
+item.part_dwimerite_forge_pattern_terminal.name=ME dwimerite forge pattern terminal
+item.part_elven_trade_pattern_terminal.name=ME elven trade pattern terminal
+item.part_mana_pool_pattern_terminal.name=ME mana pool pattern terminal
+item.part_petals_pattern_terminal.name=ME petals pattern terminal
+item.part_pure_daisy_pattern_terminal.name=ME pure daisy pattern terminal
+item.part_rune_altar_pattern_terminal.name=ME rune altar pattern terminal
+#Tooltips
+tooltip.customManaPool=§9Stores %s normal mana pools
+tooltip.customManaSpreader=§9Transfers %s mana to in tick
+tooltip.spark=§9Transfers %s mana to in tick
+
+tooltip.botania.effect.desc.core_hydroangeas=§b§lHydroangeas§r
+tooltip.botania.effect.desc.core_gourmaryllis=§6§lGourmaryllis§r
+tooltip.botania.effect.desc.core_munchdew=§2§lMunchdew§r
+tooltip.botania.effect.desc.core_endoflame=§c§lEndoflame§r
+tooltip.botania.effect.desc.core_arcanerose=§d§lArcane Rose§r
+tooltip.botania.effect.desc.core_thermalily=§c§lThermalily§r
+tooltip.botania.effect.desc.core_entropinnyum=§4§lEntropinnyum§r
+tooltip.botania.effect.desc.core_daybloom=§e§lDaybloom§r
+tooltip.botania.effect.desc.core_nightshade=§8§lNightshade§r
+
+tooltip.botania.effect.desc.core_kekimurus=§8§7Kekimurus§r
+tooltip.botania.effect.desc.core_spectrolus=§8§dSpectrolus§r
+tooltip.botania.effect.desc.core_rafflowsia=§8§5Rafflowsia§r
+tooltip.botania.effect.desc.core_asgardandelion=§8§bAsgardandelion§r
+tooltip.botania.effect.desc.core_helibrium=§8§5Helibrium§r
+tooltip.botania.effect.desc.core_valharin=§8§6Valharin§r
+tooltip.botania.effect.desc.core_midgaran=§8§bMidgaran§r
+
+tooltip.botania.storedInCell=Can store §r§l%d/%d§r §7 mana pools
+
+botania.shift_for_add_info=Press §lSHIFT§r §7for additional information
+
+tooltip.botania.effect.desc.bonus.positive=§3Increase mana production§r
+tooltip.botania.effect.desc.day_bonus.positive=§eIncrease mana production during the day§r
+tooltip.botania.effect.desc.night_bonus.positive=§8Increase mana production during the night§r
+tooltip.botania.effect.desc.rain_bonus.positive=§9Increase mana production during the rain§r
+tooltip.botania.effect.desc.flame_material_bonus.positive=§cIncrease mana production with flaming materials§r
+tooltip.botania.effect.desc.chance_to_free_item_use.positive=§aChance when issuing mana not to burn a resource§r
+tooltip.botania.effect.desc.speed_bonus.positive=§bReduces the delay for resource absorption by a §rflower
+tooltip.botania.effect.desc.exp_bonus.positive=§dReduces experience consumption§r
+
+tooltip.botania.effect.desc.bonus.negative=§4Decrease mana production§r
+tooltip.botania.effect.desc.day_bonus.negative=§cDecrease mana production during the day§r
+tooltip.botania.effect.desc.night_bonus.negative=§cDecrease mana production during the night§r
+tooltip.botania.effect.desc.rain_bonus.negative=§cDecrease mana production during the rain§r
+tooltip.botania.effect.desc.flame_material_bonus.negative=§cDecrease mana production with flaming materials§r
+tooltip.botania.effect.desc.chance_to_free_item_use.negative=§cChance when issuing mana to burn a resource and not issue mana for it§r
+tooltip.botania.effect.desc.speed_bonus.negative=§cIncreases the delay for the resource to be absorbed by the flower§r
+tooltip.botania.effect.desc.exp_bonus.negative=§cIncreases experience consumption§r
+#---===---#
+#Thaumcraft
+#Blocks
+tile.stabilizer.name=Stabilizer
+
+#Items
+item.taumBook.name=Book of Knowledge
+item.distortionBook.name=Book of Healing
+item.itemStabilizationChecker.name=Stabilization checker
+
+item.encoded_infusion_pattern.name=Encoded auto infusion pattern
+item.encoded_alchemical_construction_pattern.name=Encoded auto alchemical construction pattern
+
+item.part_alchemical_construction_pattern_terminal.name=ME alchemical construction pattern terminal
+item.part_infusion_pattern_terminal.name=ME infusion pattern terminal
+#Tooltips
+tooltip.book.error=This book does not exist
+tooltip.book.thaum.desc=The wisest among books
+tooltip.book.distortion.desc=Guide how to have a clear mind
+tooltip.book.thaum.message.1=§d§lThe wondrous scripture disappears and your mind is filled
+tooltip.book.thaum.message.2=§d§lWith all the secrets of this mortal world.
+tooltip.book.distortion.message.1=§6§lYou feel that all evil spirits are leaving you,
+tooltip.book.distortion.message.2=§6§lAnd you are filled with a pure aura.
+tooltip.stabilizationChecker.desc.1=This device calculates the symmetry and instability of the matrix.
+tooltip.stabilizationChecker.desc.2=The lower the instability, the more stable the matrix.
+tooltip.stabilizationChecker.desc.3=The smaller the symmetry parameter, the better the stability.
+tooltip.stabilizationChecker.desc.4=(!!! The symmetry of the placement of objects also affects the symmetry !!!)
+tooltip.stabilizationChecker.desc.5=To better understand why negative symmetry is good, here is the formula used by the matrix:
+tooltip.stabilizationChecker.desc.6=Instability = symmetry + craft instability.
+tooltip.stabilizationChecker.desc.7=That is, in fact, symmetry is the inverse of normal logic
+tooltip.stabilizer=§9Stabilizes and accelerates the matrix. Maximum efficiency with 4 blocks
+
+#---===---#
+#IC2
+#Blocks
+tile.advanced_matter.name=§eAdvanced matter generator
+tile.nano_matter.name=§8Nano matter generator
+tile.quantum_matter.name=Quantum matter generator
+tile.advanced_replicator.name=§eAdvanced replicator
+tile.nano_replicator.name=§8Nano replicator
+tile.quantum_replicator.name=Quantum replicator
+tile.advanced_scanner.name=§eAdvanced scanner
+tile.nano_casing.name=§8Nano Casing
+tile.quantum_casing.name=Quantum Casing
+tile.blood_casing.name=§4Gloody Casing
+tile.panel1.name=§3Solar panel §b1§3-level
+tile.panel2.name=§3Solar panel §b2§3-level
+tile.panel3.name=§3Solar panel §b3§3-level
+tile.panel4.name=§3Solar panel §b4§3-level
+tile.panel5.name=§3Solar panel §b5§3-level
+tile.panel6.name=§3Solar panel §b6§3-level
+tile.panel7.name=§3Solar panel §b7§3-level
+tile.panel8.name=§3Solar panel §b8§3-level
+#Items
+item.encoded_ic2_pattern.name=Encoded auto IC2 pattern
+item.part_ic2_pattern_terminal.name=ME IC2 pattern terminal
+
+#Tooltips
+tooltip.panel.gui.storage=Storage
+tooltip.panel.gui.maxOutput=Max Output
+tooltip.panel.gui.generating=Generating
+tooltip.panel.gui.energyPerTick=EU/t
+tooltip.panel.generation.day=§8Daytime generation: §b
+tooltip.panel.generation.night=§8Nighttime generation: §b
+tooltip.panel.output=§8Exit: §b
+tooltip.panel.storage=§8Storage: §b
+tooltip.customScanner.gui.idle=Idle
+tooltip.customScanner.gui.info1=Scanning....
+tooltip.customScanner.gui.info2=Waiting..no storage
+tooltip.customScanner.gui.info3=Error: energy loss
+tooltip.customScanner.gui.info4=Scan Completed
+tooltip.customScanner.gui.info5=Scan Result
+tooltip.customScanner.gui.info6=!! Error !!
+tooltip.customScanner.gui.info7=Transfer error no storage
+tooltip.customScanner.gui.info8=Error: already recorded
+tooltip.customScanner.gui.button.delete=Delete
+tooltip.customScanner.gui.button.save=Save
+tooltip.customMatterGen.matter=§9Produces %s matter per second
+tooltip.customMatterGen.tank=§9Saves %smb of matter
+tooltip.advancedScanner=§9Extremely fast scanner
+tooltip.customReplicator.speed=§9Produces %s items per second
+tooltip.customReplicator.discount=§9Has a materia discount of %sPROS
+tooltip.customReplicator.desc=§9Requires patterns storage
+
+#---===---#
+#Extra Utility
+#Blocks
+
+#Items
+item.encoded_qed_pattern.name=Encoded auto QED pattern
+item.part_qed_pattern_terminal.name=ME QED pattern terminal
+
+#Tooltips
+
+#---===---#
+#Blood MAgic
+#Blocks
+tile.ichor_runes.blank.name=Ichor Rune
+tile.ichor_runes.capacity.name=Ichor Rune of Augmented Capacity
+tile.ichor_runes.betterCapacity.name=Ichor Rune of Superior Capacity
+tile.ichor_runes.dislocation.name=Ichor Rune of Dislocation
+tile.ichor_runes.efficiency.name=Efficiency Ichor Rune
+tile.ichor_runes.orbCapacity.name=Ichor Rune of the Orb
+tile.ichor_runes.sacrifice.name=Ichor Rune of Sacrifice
+tile.ichor_runes.selfSacrifice.name=Ichor Rune of Self-Sacrifice
+tile.ichor_runes.speed.name=Speed Ichor Rune
+tile.ichor_runes.acceleration.name=Ichor Rune of Acceleration
+tile.singular_runes.blank.name=Singular Rune
+tile.singular_runes.capacity.name=Singular Rune of Augmented Capacity
+tile.singular_runes.betterCapacity.name=Singular Rune of Superior Capacity
+tile.singular_runes.dislocation.name=Singular Rune of Dislocation
+tile.singular_runes.efficiency.name=Efficiency Singular Rune
+tile.singular_runes.orbCapacity.name=Singular Rune of the Orb
+tile.singular_runes.sacrifice.name=Singular Rune of Sacrifice
+tile.singular_runes.selfSacrifice.name=Singular Rune of Self-Sacrifice
+tile.singular_runes.speed.name=Speed Singular Rune
+tile.singular_runes.acceleration.name=Singular Rune of Acceleration
+
+
+#Items
+
+#Tooltips
+tooltip.blood.rune=§9%s times more efficient
+

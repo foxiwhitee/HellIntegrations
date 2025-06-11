@@ -1,0 +1,292 @@
+itemGroup.HELL_TAB=HellNod
+
+#---===---#
+#Tooltips
+tooltip.pressShift=§7<Press SHIFT>
+
+#---===---#
+#AE2
+#Blocks
+tile.blockCraftingStorage256K.name=§b256K Сховище крафта
+tile.blockCraftingStorage1M.name=§b1M Сховище крафта
+tile.blockCraftingStorage4M.name=§b4M Сховище крафта
+tile.blockCraftingStorage16M.name=§b16M Сховище крафта
+tile.blockCraftingStorage65M.name=§b65M Сховище крафта
+tile.blockCraftingStorage262M.name=§b262M Сховище крафта
+tile.blockCraftingStorage1G.name=§b1G Сховище крафта
+tile.blockCraftingStorage4G.name=§b4G Сховище крафта
+tile.blockCraftingStorage16G.name=§b16G Сховище крафта
+tile.blockCraftingStorage67G.name=§b67G Сховище крафта
+tile.blockCraftingStorage268G.name=§b268G Сховище крафта
+tile.blockCraftingStorage1T.name=§b1T Сховище крафта
+tile.blockCraftingStorage4T.name=§b4T Сховище крафта
+tile.blockCraftingStorage17T.name=§b17T Сховище крафта
+tile.blockCraftingStorage68T.name=§b68T Сховище крафта
+tile.blockCraftingStorage274T.name=§b274T Сховище крафта
+tile.blockCraftingStorage1P.name=§b1P Сховище крафта
+tile.blockCraftingStorage4P.name=§b4P Сховище крафта
+tile.blockCraftingStorage17P.name=§b17P Сховище крафта
+tile.blockCraftingStorage70Q.name=§b70Q Сховище крафта
+tile.blockCraftingStorage281P.name=§b281P Сховище крафта
+tile.blockCraftingStorage1E.name=§b1E Сховище крафта
+tile.blockCraftingStorage4E.name=§b4E Сховище крафта
+tile.blockCraftingStorage9E.name=§b9E Сховище крафта
+
+tile.advanced_interface.name=§2Розширений ME інтерфейс
+tile.hybrid_interface.name=§6Гібридний ME інтерфейс
+tile.ultimate_interface.name=§5Ультимативний ME інтерфейс
+
+tile.advanced_crafting_accelerator.name=§5Розширений блок спільної обробки крафтів
+tile.hybrid_crafting_accelerator.name=§5Гібридний блок спільної обробки крафтів
+tile.ultimate_crafting_accelerator.name=§5Ультимативний блок спільної обробки крафтів
+tile.quantum_crafting_accelerator.name=§5Квантовий блок спільної обробки крафтів
+
+tile.autoCrystallizer.name=Автоматичний кристалізатор
+tile.autoPress.name=Автоматичний прес
+
+#Items
+item.storageComponent256K.name=§b256K ME Компонент зберігання
+item.storageComponent1M.name=§b1M ME Компонент зберігання
+item.storageComponent4M.name=§b4M ME Компонент зберігання
+item.storageComponent16M.name=§b16M ME Компонент зберігання
+item.storageComponent65M.name=§b65M ME Компонент зберігання
+item.storageComponent262M.name=§b262M ME Компонент зберігання
+item.storageComponent1G.name=§b1G ME Компонент зберігання
+item.storageComponent4G.name=§b4G ME Компонент зберігання
+item.storageComponent16G.name=§b16G ME Компонент зберігання
+item.storageComponent67G.name=§b67G ME Компонент зберігання
+item.storageComponent268G.name=§b268G ME Компонент зберігання
+item.storageComponent1T.name=§b1T ME Компонент зберігання
+item.storageComponent4T.name=§b4T ME Компонент зберігання
+item.storageComponent17T.name=§b17T ME Компонент зберігання
+item.storageComponent68T.name=§b68T ME Компонент зберігання
+item.storageComponent274T.name=§b274T ME Компонент зберігання
+item.storageComponent1P.name=§b1P ME Компонент зберігання
+item.storageComponent4P.name=§b4P ME Компонент зберігання
+item.storageComponent17P.name=§b17P ME Компонент зберігання
+item.storageComponent70Q.name=§b70Q ME Компонент зберігання
+item.storageComponent281P.name=§b281P ME Компонент зберігання
+item.storageComponent1E.name=§b1E ME Компонент зберігання
+item.storageComponent4E.name=§b4E ME Компонент зберігання
+item.storageComponent9E.name=§b9E ME Компонент зберігання
+
+item.part_adv_interface.name=§2Розширений ME інтерфейс
+item.part_hybrid_interface.name=§6Гібридний ME інтерфейс
+item.part_ultimate_interface.name=§5Ультимативний ME інтерфейс
+
+item.richSeedsQuartz.name=Збагачене насіння кварцу
+item.richSeedsCertusQuartz.name=Збагачене насіння справжнього кварцу
+item.richSeedsFluixQuartz.name=Збагачене насіння мінливого кварцу
+
+item.advancedEmptyCell.name=ME Продвинутий корпус зберігання
+item.hybridEmptyCell.name=ME Гібридний корпус зберігання
+item.ultimateEmptyCell.name=ME Ультимативний корпус зберігання
+item.quantumEmptyCell.name=ME Квантовий корпус зберігання
+item.singularEmptyCell.name=ME Сингулярний корпус зберігання
+
+item.storageCell256K.name=256K ME осередок зберігання
+item.storageCell1M.name=1M ME осередок зберігання
+item.storageCell4M.name=4M ME осередок зберігання
+item.storageCell16M.name=16M ME осередок зберігання
+item.storageCell65M.name=65M ME осередок зберігання
+item.storageCell262M.name=262M ME осередок зберігання
+item.storageCell1G.name=1G ME осередок зберігання
+item.storageCell4G.name=4G ME осередок зберігання
+item.storageCell16G.name=16G ME осередок зберігання
+item.storageCell67G.name=67G ME осередок зберігання
+item.storageCell268G.name=268G ME осередок зберігання
+item.storageCell1T.name=1T ME осередок зберігання
+item.storageCell4T.name=4T ME осередок зберігання
+item.storageCell17T.name=17T ME осередок зберігання
+item.storageCell68T.name=68T ME осередок зберігання
+item.storageCell274T.name=274T ME осередок зберігання
+item.storageCell1P.name=1P ME осередок зберігання
+item.storageCell4P.name=4P ME осередок зберігання
+item.storageCell17P.name=17P ME осередок зберігання
+item.storageCell70Q.name=70Q ME осередок зберігання
+item.storageCell281P.name=281P ME осередок зберігання
+item.storageCell9E.name=9E ME Сингулярний осередок зберігання
+
+#Tooltips
+gui.tooltips.appliedenergistics2.PastBtnTitle=Попередній крафт
+gui.tooltips.appliedenergistics2.PastBtnDesc=Гортає крафти на попередній
+gui.tooltips.appliedenergistics2.NextBtnTitle=Наступний крафт
+gui.tooltips.appliedenergistics2.NextBtnDesc=Гортає крафти на наступний
+gui.tooltips.appliedenergistics2.ChangeTypeBtnTitle=Змінити тип
+gui.tooltips.appliedenergistics2.ChangeTypeBtnDesc=Змінює тип блоку
+
+tooltip.assembler.speed=§9Виробляє %s елементів за секунду
+tooltip.autoCrystallizer=§9Автоматизує заряджання кристалів, вирощування кристалів та створення зміних кристалів
+tooltip.autoPress=§9Автоматизує створення всіх процесорів
+tooltip.interface=§9Інтерфейс із %s слотами§9
+tooltip.storage.physical.types=Використано %s з %s типів елементів.
+tooltip.storage.physical.bytes=Використано %s з %s байт елементів.
+tooltip.storage.physical.content=Містить %s елементів.
+tooltip.cobblestoneDuper=§9Заповнює будь-яку комірку зберігання кругляком
+
+#---===---#
+#Avaritia
+#Blocks
+tile.autoNeutroniumCompressor.name=Автоматичний нейтронієвий компресор
+
+#Items
+item.eternitySing.name=§9Вічна Сингулярність
+item.eternalCatalyst.name=§9Вічний каталізатор
+eternitySing.name=§9Вічна Сингулярність
+eternalCatalyst.name=§9Вічний каталізатор
+
+item.encoded_big_pattern.name=Закодований великий шаблон
+item.encoded_neutron_pattern.name=Закодований шаблон авто нейтронового компресора
+
+item.part_big_pattern_terminal.name=ME твеликий ермінал кодування
+item.part_crafting_terminal_9x9.name=ME термінал крафту 9x9
+item.part_neutron_compressor_pattern_terminal.name=ME термінал кодування нейтронового компресору
+
+#Tooltips
+tooltip.autoNeutroniumCompressor=§9Автоматизує нейтроний компресор. Потрібні нейтронні шаблони
+tooltip.neutronCollector=§9Створює %s %s за %s тактів
+
+#---===---#
+#Draconic Evolution
+#Blocks
+tile.autoAwakener.name=Автоматичний пробуджувач блоків
+
+#Items
+
+#Tooltips
+tooltip.autoAwakener=§9Автоматизує пробудження блоків дракона
+
+#---===---#
+#Botania
+#Blocks
+tile.mana_charger.name=§bЗарядний пристрій мани
+tile.asgardPool.name=§4Асгардський басейн мани
+tile.helhelmPool.name=§5Хельхельмовський басейн мани
+tile.valhallaPool.name=§6Вальхалльський басейн мани
+tile.midgardPool.name=§3Мідгардський басейн мани
+tile.asgardSpreader.name=§4Асгардський розсіювач мани
+tile.helhelmSpreader.name=§5Хельхельмовський розсіювач мани
+tile.valhallaSpreader.name=§6Вальхалльський розсіювач мани
+tile.midgardSpreader.name=§3Мідгардський розсіювач мани
+
+#Items
+item.asgardSpark.name=§4Асгардська іскра
+item.helhelmSpark.name=§5Хельхельмовська іскра
+item.valhallaSpark.name=§6Вальхальська іскра
+item.midgardSpark.name=§3Мідгарська іскра
+
+item.encoded_dwimerite_forge_pattern.name=Закодований шаблон авто двиMEритової кузні
+item.encoded_elven_trade_pattern.name=Закодований шаблон авто ельфійської торгівлі
+item.encoded_mana_pool_pattern.name=Закодований шаблон авто басейна мани
+item.encoded_petals_pattern.name=Закодований шаблон авто пелюсткового аптекаря
+item.encoded_pure_daisy_pattern.name=Закодований шаблон авто чистої маргаритки
+item.encoded_rune_altar_pattern.name=Закодований шаблон авто рунічного алтарю
+
+item.part_dwimerite_forge_pattern_terminal.name=ME термінал кодування двимиритової кузні
+item.part_elven_trade_pattern_terminal.name=ME термінал кодування ельфійської торгівлі
+item.part_mana_pool_pattern_terminal.name=ME термінал кодування басейна мани
+item.part_petals_pattern_terminal.name=ME термінал кодування лепесткового аптекаря
+item.part_pure_daisy_pattern_terminal.name=ME термінал кодування чистої маргаритки
+item.part_rune_altar_pattern_terminal.name=ME термінал кодування рунічного алтаря
+
+#Tooltips
+tooltip.customManaPool=§9Зберігає %s нормальних басейнів мани
+tooltip.customManaSpreader=§9Передає %s мани в in tick
+tooltip.spark=§9Передає %s мани в in tick
+
+#---===---#
+#Thaumcraft
+#Blocks
+tile.stabilizer.name=Стабілізатор
+
+#Items
+item.taumBook.name=Книга Знань
+item.distortionBook.name=Книга зцілення
+item.itemStabilizationChecker.name=Перевірник стабілізації
+
+item.encoded_alchemical_construction_pattern.name=Закодований шаблон авто алхімічної конструкції
+item.encoded_infusion_pattern.name=Закодований шаблон авто матриці
+
+item.part_alchemical_construction_pattern_terminal.name=ME алхімічний термінал кодування
+item.part_infusion_pattern_terminal.name=ME термінал кодування матриці
+
+#Tooltips
+tooltip.book.error=Ця книга не існує
+tooltip.book.thaum.desc=Наймудріша серед книг
+tooltip.book.distortion.desc=Посібник, як мати ясний розум
+tooltip.book.thaum.message.1=§d§lЧудове Писання зникає, і ваш розум наповнюється
+tooltip.book.thaum.message.2=§d§lУсіма таємницями цього сMEртного світу.
+tooltip.book.distortion.message.1=§6§lВи відчуваєте, що всі злі духи залишають вас,
+tooltip.book.distortion.message.2=§6§lІ ви наповнюєшся чистою аурою.
+tooltip.stabilizationChecker.desc.1=Цей пристрій рахує сиMEтрію і нестабільність матриці.
+tooltip.stabilizationChecker.desc.2=Чим MEнша нестабільність тим стабільніша матриця.
+tooltip.stabilizationChecker.desc.3=Чим MEнший параMEтер сиMEтриї тим краща стабільність.
+tooltip.stabilizationChecker.desc.4=(!!! СиMEтрія розміщення предMEтів також впливає на сиMEтрію !!!)
+tooltip.stabilizationChecker.desc.5=Для кращого розуміння чому ж мінусова сиMEтрія це добре ось формула яку використовує матриця:
+tooltip.stabilizationChecker.desc.6=Нестабільність = сиMEтрія + нестабільність крафту.
+tooltip.stabilizationChecker.desc.7=Тобто фактично сиMEтрія є оберненою до нормальної логіки
+tooltip.stabilizer=§9Стабілізує і прискорює матрицю. Максимальна ефективність з 4 блоками
+
+#---===---#
+#IC2
+#Blocks
+tile.advanced_matter.name=§eРозширений генератор матерії
+tile.nano_matter.name=§8Нано генератор матерії
+tile.quantum_matter.name=Квантовий генератор матерії
+tile.advanced_replicator.name=§eРозширений реплікатор
+tile.nano_replicator.name=§8Нано реплікатор
+tile.quantum_replicator.name=Квантовий реплікатор
+tile.advanced_scanner.name=§eРозширений сканер
+tile.nano_casing.name=§8Нано корпус
+tile.quantum_casing.name=Квантовий корпус
+tile.blood_casing.name=§4Кривавий корпус
+tile.panel1.name=§3Сонячна панель §b1§3-рівня
+tile.panel2.name=§3Сонячна панель §b2§3-рівня
+tile.panel3.name=§3Сонячна панель §b3§3-рівня
+tile.panel4.name=§3Сонячна панель §b4§3-рівня
+tile.panel5.name=§3Сонячна панель §b5§3-рівня
+tile.panel6.name=§3Сонячна панель §b6§3-рівня
+tile.panel7.name=§3Сонячна панель §b7§3-рівня
+tile.panel8.name=§3Сонячна панель §b8§3-рівня
+
+#Items
+item.encoded_ic2_pattern.name=Закодований шаблон IC2
+item.part_ic2_pattern_terminal.name=ME термінал кодування IC2
+
+#Tooltips
+tooltip.panel.gui.storage=Сховище
+tooltip.panel.gui.maxOutput=Максимальний вихід
+tooltip.panel.gui.generating=Генерація
+tooltip.panel.gui.energyPerTick=EU/t
+tooltip.panel.generation.day=§8Денна генерація: §b
+tooltip.panel.generation.night=§8Нічна генерація: §b
+tooltip.panel.output=§8Вихід: §b
+tooltip.panel.storage=§8Зберігання: §b
+tooltip.customScanner.gui.idle=Неактивний
+tooltip.customScanner.gui.info1=Сканування....
+tooltip.customScanner.gui.info2=Очікування..немає пам'яті
+tooltip.customScanner.gui.info3=Помилка: втрата енергії
+tooltip.customScanner.gui.info4=Сканування завершено
+tooltip.customScanner.gui.info5=Результат сканування
+tooltip.customScanner.gui.info6=!! Помилка !!
+tooltip.customScanner.gui.info7=Помилка передачі: немає пам'яті
+tooltip.customScanner.gui.info8=Помилка: уже записано
+tooltip.customScanner.gui.button.delete=Видалити
+tooltip.customScanner.gui.button.save=Зберегти
+tooltip.customMatterGen.matter=§9Виробляє %s матерії за секунду
+tooltip.customMatterGen.tank=§9Зберігає %smb матерії
+tooltip.advancedScanner=§9Надзвичайно швидкий сканер
+tooltip.customReplicator.speed=§9Виробляє %s елементів за секунду
+tooltip.customReplicator.discount=§9Має матеріальну знижку %sPROS
+tooltip.customReplicator.desc=§9Потрібне сховище шаблонів
+
+#---===---#
+#Extra Utility
+#Blocks
+
+#Items
+item.encoded_qed_pattern.name=Закодований шаблон авто QED
+item.part_qed_pattern_terminal.name=ME термінал кодування QED
+
+#Tooltips
+
