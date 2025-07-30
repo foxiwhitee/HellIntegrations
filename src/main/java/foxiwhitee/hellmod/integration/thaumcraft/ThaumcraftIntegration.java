@@ -93,14 +93,20 @@ public class ThaumcraftIntegration implements IIntegration {
         guiBridges.put(0, EnumHelper.addEnum(GuiBridge.class, "PartAlchemicalConstructionPatternTerminal", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerPartAlchemicalConstructionPatternTerminal.class, PartAlchemicalConstructionPatternTerminal.class, GuiHostType.WORLD, SecurityPermissions.CRAFT}));
         guiBridges.put(1, EnumHelper.addEnum(GuiBridge.class, "PartInfusionPatternTerminal", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerPartInfusionPatternTerminal.class, PartInfusionPatternTerminal.class, GuiHostType.WORLD, SecurityPermissions.CRAFT}));
 
+        if (isClient()) {
+            registerClientCableBusTextures();
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void registerClientCableBusTextures() {
         cableBusTexturesBright.put(0, EnumHelper.addEnum(CableBusTextures.class, "AlchemicalConstructionPatternTerminal", new Class[]{String.class}, new Object[]{"PartAlchemicalConstructionPatternTerm_Bright"}));
         cableBusTexturesDark.put(0, EnumHelper.addEnum(CableBusTextures.class, "AlchemicalConstructionPatternTerminal", new Class[]{String.class}, new Object[]{"PartAlchemicalConstructionPatternTerm_Dark"}));
         cableBusTexturesColored.put(0, EnumHelper.addEnum(CableBusTextures.class, "AlchemicalConstructionPatternTerminal", new Class[]{String.class}, new Object[]{"PartAlchemicalConstructionPatternTerm_Colored"}));
 
-        cableBusTexturesBright.put(1, EnumHelper.addEnum(CableBusTextures.class, "InfusionPatternTerminal", new Class[] { String.class }, new Object[] { "PartInfusionPatternTerminal_Bright" }));
-        cableBusTexturesDark.put(1, EnumHelper.addEnum(CableBusTextures.class, "InfusionPatternTerminal", new Class[] { String.class }, new Object[] { "PartInfusionPatternTerminal_Dark" }));
-        cableBusTexturesColored.put(1, EnumHelper.addEnum(CableBusTextures.class, "InfusionPatternTerminal", new Class[] { String.class }, new Object[] { "PartInfusionPatternTerminal_Colored" }));
-
-
+        cableBusTexturesBright.put(1, EnumHelper.addEnum(CableBusTextures.class, "InfusionPatternTerminal", new Class[]{String.class}, new Object[]{"PartInfusionPatternTerminal_Bright"}));
+        cableBusTexturesDark.put(1, EnumHelper.addEnum(CableBusTextures.class, "InfusionPatternTerminal", new Class[]{String.class}, new Object[]{"PartInfusionPatternTerminal_Dark"}));
+        cableBusTexturesColored.put(1, EnumHelper.addEnum(CableBusTextures.class, "InfusionPatternTerminal", new Class[]{String.class}, new Object[]{"PartInfusionPatternTerminal_Colored"}));
     }
+
 }

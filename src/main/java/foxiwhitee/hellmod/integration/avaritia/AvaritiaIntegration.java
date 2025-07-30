@@ -106,6 +106,13 @@ public class AvaritiaIntegration implements IIntegration {
         guiBridges.put(1, EnumHelper.addEnum(GuiBridge.class, "PartCraftingTerminal9x9", new Class[] { Class.class, Class.class, GuiHostType.class, SecurityPermissions.class }, new Object[] { ContainerPartCraftingTerminal9x9.class, PartCraftingTerminal9x9.class, GuiHostType.WORLD, SecurityPermissions.CRAFT }));
         guiBridges.put(2, EnumHelper.addEnum(GuiBridge.class, "PartNeutronCompressorPatternTerminal", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerPartNeutronCompressorPatternTerminal.class, PartNeutronCompressorPatternTerminal.class, GuiHostType.WORLD, SecurityPermissions.CRAFT}));
 
+        if (isClient()) {
+            registerClientCableBusTextures();
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void registerClientCableBusTextures() {
         cableBusTexturesBright.put(0, EnumHelper.addEnum(CableBusTextures.class, "BigPatternTerminal", new Class[] { String.class }, new Object[] { "PartBigPatternTerm_Bright" }));
         cableBusTexturesDark.put(0, EnumHelper.addEnum(CableBusTextures.class, "BigPatternTerminal", new Class[] { String.class }, new Object[] { "PartBigPatternTerm_Dark" }));
         cableBusTexturesColored.put(0, EnumHelper.addEnum(CableBusTextures.class, "BigPatternTerminal", new Class[] { String.class }, new Object[] { "PartBigPatternTerm_Colored" }));
@@ -117,7 +124,6 @@ public class AvaritiaIntegration implements IIntegration {
         cableBusTexturesBright.put(2, EnumHelper.addEnum(CableBusTextures.class, "NeutronCompressorPatternTerminal", new Class[] { String.class }, new Object[] { "PartNeutronCompressorPatternTerminal_Bright" }));
         cableBusTexturesDark.put(2, EnumHelper.addEnum(CableBusTextures.class, "NeutronCompressorPatternTerminal", new Class[] { String.class }, new Object[] { "PartNeutronCompressorPatternTerminal_Dark" }));
         cableBusTexturesColored.put(2, EnumHelper.addEnum(CableBusTextures.class, "NeutronCompressorPatternTerminal", new Class[] { String.class }, new Object[] { "PartNeutronCompressorPatternTerminal_Colored" }));
-
     }
 
     @SideOnly(Side.CLIENT)

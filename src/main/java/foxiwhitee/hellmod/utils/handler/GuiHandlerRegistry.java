@@ -38,8 +38,11 @@ public class GuiHandlerRegistry {
                     continue;
                 }
 
-                if (!validateGuiConstructor(annotation.gui(), annotation.container())) {
-                    throw new SimpleGuiHandlerException("Invalid GUI constructor for " + annotation.gui().getName() + " in " + clazz.getName() + " must inherit from Block. GUI must accept Container");
+                // Só valida GUI se estivermos no lado CLIENTE
+                if (cpw.mods.fml.common.FMLCommonHandler.instance().getEffectiveSide().isClient()) {
+                    if (!validateGuiConstructor(annotation.gui(), annotation.container())) {
+                        throw new SimpleGuiHandlerException("Invalid GUI constructor for " + annotation.gui().getName() + " in " + clazz.getName());
+                    }
                 }
 
                 if (!validateContainerConstructor(annotation.container(), annotation.tile())) {

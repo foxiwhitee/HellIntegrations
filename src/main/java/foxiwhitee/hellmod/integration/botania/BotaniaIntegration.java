@@ -228,6 +228,13 @@ public class BotaniaIntegration implements IIntegration {
         AEApi.instance().registries().gridCache().registerGridCache(IManaStorageGrid.class, ManaStorageGrid.class);
         ItemDisplayBlackList.blacklistItemDisplay(mana_drop);
 
+        if (isClient()) {
+            postInitClient();
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void postInitClient() {
         guiBridges.put(0, EnumHelper.addEnum(GuiBridge.class, "PartManaPoolPatternTerminal", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerPartManaPoolPatternTerminal.class, PartManaPoolPatternTerminal.class, GuiHostType.WORLD, SecurityPermissions.CRAFT}));
         guiBridges.put(2, EnumHelper.addEnum(GuiBridge.class, "PartElvenTradePatternTerminal", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerPartElvenTradePatternTerminal.class, PartElvenTradePatternTerminal.class, GuiHostType.WORLD, SecurityPermissions.CRAFT}));
         guiBridges.put(3, EnumHelper.addEnum(GuiBridge.class, "PartPetalsPatternTerminal", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerPartPetalsPatternTerminal.class, PartPetalsPatternTerminal.class, GuiHostType.WORLD, SecurityPermissions.CRAFT}));
@@ -237,19 +244,24 @@ public class BotaniaIntegration implements IIntegration {
         cableBusTexturesBright.put(0, EnumHelper.addEnum(CableBusTextures.class, "ManaPoolPatternTerminal", new Class[]{String.class}, new Object[]{"PartManaPoolPatternTerm_Bright"}));
         cableBusTexturesDark.put(0, EnumHelper.addEnum(CableBusTextures.class, "ManaPoolPatternTerminal", new Class[]{String.class}, new Object[]{"PartManaPoolPatternTerm_Dark"}));
         cableBusTexturesColored.put(0, EnumHelper.addEnum(CableBusTextures.class, "ManaPoolPatternTerminal", new Class[]{String.class}, new Object[]{"PartManaPoolPatternTerm_Colored"}));
+
         cableBusTexturesBright.put(2, EnumHelper.addEnum(CableBusTextures.class, "ElvenTradePatternTerminal", new Class[] { String.class }, new Object[] { "PartElvenTradePatternTerminal_Bright" }));
         cableBusTexturesDark.put(2, EnumHelper.addEnum(CableBusTextures.class, "ElvenTradePatternTerminal", new Class[] { String.class }, new Object[] { "PartElvenTradePatternTerminal_Dark" }));
         cableBusTexturesColored.put(2, EnumHelper.addEnum(CableBusTextures.class, "ElvenTradePatternTerminal", new Class[] { String.class }, new Object[] { "PartElvenTradePatternTerminal_Colored" }));
+
         cableBusTexturesBright.put(3, EnumHelper.addEnum(CableBusTextures.class, "PetalsPatternTerminal", new Class[] { String.class }, new Object[] { "PartPetalsPatternTerminal_Bright" }));
         cableBusTexturesDark.put(3, EnumHelper.addEnum(CableBusTextures.class, "PetalsPatternTerminal", new Class[] { String.class }, new Object[] { "PartPetalsPatternTerminal_Dark" }));
         cableBusTexturesColored.put(3, EnumHelper.addEnum(CableBusTextures.class, "PetalsPatternTerminal", new Class[] { String.class }, new Object[] { "PartPetalsPatternTerminal_Colored" }));
+
         cableBusTexturesBright.put(4, EnumHelper.addEnum(CableBusTextures.class, "PureDaisyPatternTerminal", new Class[] { String.class }, new Object[] { "PartPureDaisyPatternTerminal_Bright" }));
         cableBusTexturesDark.put(4, EnumHelper.addEnum(CableBusTextures.class, "PureDaisyPatternTerminal", new Class[] { String.class }, new Object[] { "PartPureDaisyPatternTerminal_Dark" }));
-        cableBusTexturesColored.put(4, EnumHelper.addEnum(CableBusTextures.class, "PureDaisyPatternTerminal", new Class[] { String.class }, new Object[] { "PartPureDaisyPatternTerminal_Colored" }));
+        cableBusTexturesColored.put(4, EnumHelper.addEnum(CableBusTextures.class, "PartPureDaisyPatternTerminal", new Class[] { String.class }, new Object[] { "PartPureDaisyPatternTerminal_Colored" }));
+
         cableBusTexturesBright.put(5, EnumHelper.addEnum(CableBusTextures.class, "RuneAltarPatternTerminal", new Class[] { String.class }, new Object[] { "PartRuneAltarPatternTerminal_Bright" }));
         cableBusTexturesDark.put(5, EnumHelper.addEnum(CableBusTextures.class, "RuneAltarPatternTerminal", new Class[] { String.class }, new Object[] { "PartRuneAltarPatternTerminal_Dark" }));
         cableBusTexturesColored.put(5, EnumHelper.addEnum(CableBusTextures.class, "RuneAltarPatternTerminal", new Class[] { String.class }, new Object[] { "PartRuneAltarPatternTerminal_Colored" }));
     }
+
 
     public static void initHex() {
         sparkColorAsgard = parseColor("#D66122", 16711680);
