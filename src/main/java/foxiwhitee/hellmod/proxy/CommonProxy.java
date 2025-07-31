@@ -65,16 +65,14 @@ public class CommonProxy {
     private static GuiBridge GUI_ULTIMATE_MOLECULAR_ASSEMBLER = null;
     private static GuiBridge GUI_ADV_ME_DRIVE = null;
 
-    private static CableBusTextures PART_ADV_INTERFACE_FRONT = null;
-
-    private static CableBusTextures PART_HYBRID_INTERFACE_FRONT = null;
-    private static CableBusTextures PART_ULTIMATE_INTERFACE_FRONT = null;
+    protected static CableBusTextures PART_ADV_INTERFACE_FRONT = null;
+    protected static CableBusTextures PART_HYBRID_INTERFACE_FRONT = null;
+    protected static CableBusTextures PART_ULTIMATE_INTERFACE_FRONT = null;
     private static HashMap<Integer, GuiBridge> guiBridges = new HashMap<>();
 
-    private static HashMap<Integer, CableBusTextures> cableBusTexturesBright = new HashMap<>();
-
-    private static HashMap<Integer, CableBusTextures> cableBusTexturesDark = new HashMap<>();
-    private static HashMap<Integer, CableBusTextures> cableBusTexturesColored = new HashMap<>();
+    protected static HashMap<Integer, CableBusTextures> cableBusTexturesBright = new HashMap<>();
+    protected static HashMap<Integer, CableBusTextures> cableBusTexturesDark = new HashMap<>();
+    protected static HashMap<Integer, CableBusTextures> cableBusTexturesColored = new HashMap<>();
     public static GuiBridge getGuiBridge(int id) {
         return guiBridges.get(id);
     }
@@ -167,18 +165,18 @@ public class CommonProxy {
         GUI_HYBRID_INTERFACE = EnumHelper.addEnum(GuiBridge.class, "PartHybridInterface", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerHybridInterface.class, IInterfaceHost.class, GuiHostType.WORLD, SecurityPermissions.BUILD});
         GUI_ULTIMATE_INTERFACE = EnumHelper.addEnum(GuiBridge.class, "PartUltimateInterface", new Class[]{Class.class, Class.class, GuiHostType.class, SecurityPermissions.class}, new Object[]{ContainerUltimateInterface.class, IInterfaceHost.class, GuiHostType.WORLD, SecurityPermissions.BUILD});
 
-        PART_ADV_INTERFACE_FRONT = EnumHelper.addEnum(CableBusTextures.class, "PartAdvInterfaceFront", new Class[]{String.class}, new Object[]{"PartAdvInterfaceFront"});
-        PART_HYBRID_INTERFACE_FRONT = EnumHelper.addEnum(CableBusTextures.class, "PartHybridInterfaceFront", new Class[]{String.class}, new Object[]{"PartHybridInterfaceFront"});
-        PART_ULTIMATE_INTERFACE_FRONT = EnumHelper.addEnum(CableBusTextures.class, "PartUltimateInterfaceFront", new Class[]{String.class}, new Object[]{"PartUltimateInterfaceFront"});
+        //PART_ADV_INTERFACE_FRONT = EnumHelper.addEnum(CableBusTextures.class, "PartAdvInterfaceFront", new Class[]{String.class}, new Object[]{"PartAdvInterfaceFront"});
+        //PART_HYBRID_INTERFACE_FRONT = EnumHelper.addEnum(CableBusTextures.class, "PartHybridInterfaceFront", new Class[]{String.class}, new Object[]{"PartHybridInterfaceFront"});
+        //PART_ULTIMATE_INTERFACE_FRONT = EnumHelper.addEnum(CableBusTextures.class, "PartUltimateInterfaceFront", new Class[]{String.class}, new Object[]{"PartUltimateInterfaceFront"});
 
         GUI_BASE_MOLECULAR_ASSEMBLER = (GuiBridge)EnumHelper.addEnum(GuiBridge.class, "BaseModularAssembler", new Class[] { Class.class, Class.class, GuiHostType.class, SecurityPermissions.class }, new Object[] { ContainerCustomMolecularAssembler.class, TileBaseMolecularAssembler.class, GuiHostType.WORLD, SecurityPermissions.BUILD });
         GUI_HYBRID_MOLECULAR_ASSEMBLER = (GuiBridge)EnumHelper.addEnum(GuiBridge.class, "HybridModularAssembler", new Class[] { Class.class, Class.class, GuiHostType.class, SecurityPermissions.class }, new Object[] { ContainerCustomMolecularAssembler.class, TileHybridMolecularAssembler.class, GuiHostType.WORLD, SecurityPermissions.BUILD });
         GUI_ULTIMATE_MOLECULAR_ASSEMBLER = (GuiBridge)EnumHelper.addEnum(GuiBridge.class, "UltimateModularAssembler", new Class[] { Class.class, Class.class, GuiHostType.class, SecurityPermissions.class }, new Object[] { ContainerCustomMolecularAssembler.class, TileUltimateMolecularAssembler.class, GuiHostType.WORLD, SecurityPermissions.BUILD });
         
         guiBridges.put(0, EnumHelper.addEnum(GuiBridge.class, "AdvancedInterfaceTerminal", new Class[] { Class.class, Class.class, GuiHostType.class, SecurityPermissions.class }, new Object[] { ContainerAdvancedInterfaceTerminal.class, PartAdvancedInterfaceTerminal.class, GuiHostType.WORLD, SecurityPermissions.BUILD }));
-        cableBusTexturesBright.put(0, EnumHelper.addEnum(CableBusTextures.class, "AdvancedInterfaceTerminal", new Class[] { String.class }, new Object[] { "PartAdvancedInterfaceTerminal_Bright" }));
-        cableBusTexturesDark.put(0, EnumHelper.addEnum(CableBusTextures.class, "AdvancedInterfaceTerminal", new Class[] { String.class }, new Object[] { "PartAdvancedInterfaceTerminal_Dark" }));
-        cableBusTexturesColored.put(0, EnumHelper.addEnum(CableBusTextures.class, "AdvancedInterfaceTerminal", new Class[] { String.class }, new Object[] { "PartAdvancedInterfaceTerminal_Colored" }));
+        //cableBusTexturesBright.put(0, EnumHelper.addEnum(CableBusTextures.class, "AdvancedInterfaceTerminal", new Class[] { String.class }, new Object[] { "PartAdvancedInterfaceTerminal_Bright" }));
+        //cableBusTexturesDark.put(0, EnumHelper.addEnum(CableBusTextures.class, "AdvancedInterfaceTerminal", new Class[] { String.class }, new Object[] { "PartAdvancedInterfaceTerminal_Dark" }));
+        //cableBusTexturesColored.put(0, EnumHelper.addEnum(CableBusTextures.class, "AdvancedInterfaceTerminal", new Class[] { String.class }, new Object[] { "PartAdvancedInterfaceTerminal_Colored" }));
 
         GUI_ADV_ME_DRIVE = (GuiBridge)EnumHelper.addEnum(GuiBridge.class, "AdvMEDrive", new Class[] { Class.class, Class.class, GuiHostType.class, SecurityPermissions.class }, new Object[] { ContainerAdvancedDrive.class, TileAdvancedDrive.class, GuiHostType.WORLD, SecurityPermissions.BUILD });
 

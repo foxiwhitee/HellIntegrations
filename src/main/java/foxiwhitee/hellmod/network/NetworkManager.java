@@ -11,7 +11,6 @@ import cpw.mods.fml.common.network.FMLEventChannel;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
@@ -19,10 +18,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-
+import foxiwhitee.hellmod.network.ClientPacketProcessor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class NetworkManager {
     public static NetworkManager instance;
@@ -36,7 +33,11 @@ public class NetworkManager {
         this.channel = NetworkRegistry.INSTANCE.newEventDrivenChannel(channelName);
         this.channel.register(this);
         FMLCommonHandler.instance().bus().register(this);
-        this.clientPacketHandler = new ClientPacketProcessor();
+        if (FMLCommonHandler.instance().getSide().isClient()) {
+            this.clientPacketHandler = new ClientPacketProcessor();
+        } else {
+            this.clientPacketHandler = null;
+        }
         this.serverPacketHandler = new ServerPacketProcessor();
     }
 
@@ -100,19 +101,6 @@ public class NetworkManager {
         }
     }
 
-    private static class ClientPacketProcessor implements IPacketHandler {
-        @Override
-        public void onPacketData(INetworkInfo network, FMLProxyPacket packet, EntityPlayer player) {
-            try {
-                int packetId = packet.payload().readInt();
-                BasePacket basePacket = NetworkPackets.fromId(packetId).createInstance(packet.payload());
-                EntityPlayer clientPlayer = Minecraft.getMinecraft().thePlayer;
-                basePacket.handleClientSide(network, basePacket, clientPlayer);
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | RuntimeException e) {
-                AELog.debug("Client packet processing failed: " + e.getMessage());
-            }
-        }
-    }
 
     private static class ServerPacketProcessor implements IPacketHandler {
         @Override
