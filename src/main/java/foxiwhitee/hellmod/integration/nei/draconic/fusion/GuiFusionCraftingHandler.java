@@ -8,9 +8,11 @@ import com.brandon3055.draconicevolution.client.handler.ClientEventHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.awt.Rectangle;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import net.minecraft.util.Timer;
 
 import foxiwhitee.hellmod.HellCore;
 import foxiwhitee.hellmod.ModRecipes;
@@ -272,7 +274,16 @@ public class GuiFusionCraftingHandler extends TemplateRecipeHandler {
                 this.lastTick = ClientEventHandler.elapsedTicks;
                 tick();
             }
-            this.effectRenderer.renderEffects((((IMinecraftAccessor)minecraft).getTimer()).renderPartialTicks);
+
+            try {
+                Field timerField = Minecraft.class.getDeclaredField("timer");
+                timerField.setAccessible(true);
+                Timer timer = (Timer) timerField.get(Minecraft.getMinecraft());
+                this.effectRenderer.renderEffects(timer.renderPartialTicks);
+            } catch (Exception e) {
+                e.printStackTrace();
+                this.effectRenderer.renderEffects(0);
+            }
         }
 
         public void tick() {
