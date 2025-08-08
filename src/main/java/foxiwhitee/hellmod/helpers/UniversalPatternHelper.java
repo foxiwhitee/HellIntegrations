@@ -7,8 +7,6 @@ import appeng.container.ContainerNull;
 import appeng.util.ItemSorters;
 import appeng.util.Platform;
 import appeng.util.item.AEItemStack;
-import foxiwhitee.hellmod.integration.botania.helpers.*;
-import foxiwhitee.hellmod.integration.thaumcraft.helpers.InfusionPatternHellper;
 import foxiwhitee.hellmod.recipes.IHellRecipe;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -20,7 +18,7 @@ import net.minecraft.world.World;
 
 import java.util.*;
 
-public abstract class UniversalPatternHelper implements ICraftingPatternDetails, Comparable<UniversalPatternHelper> {
+public class UniversalPatternHelper implements ICraftingPatternDetails, Comparable<UniversalPatternHelper> {
     private final InventoryCrafting crafting;
     private final InventoryCrafting testFrame;
     private final ItemStack patternItem;
@@ -36,9 +34,16 @@ public abstract class UniversalPatternHelper implements ICraftingPatternDetails,
     private final Set<UniversalPatternHelper.TestLookup> passCache = new HashSet();
     private final IAEItemStack pattern;
     private int priority = 0;
+    private final IFindMatchingRecipe findMatchingRecipe;
+    private final boolean isCraftable;
+    private final int width;
+    private final int height;
 
-
-    public UniversalPatternHelper(ItemStack is, World w) {
+    public UniversalPatternHelper(ItemStack is, boolean isCraftable, int width, int height, IFindMatchingRecipe findMatchingRecipe) {
+        this.findMatchingRecipe = findMatchingRecipe;
+        this.isCraftable = isCraftable;
+        this.width = width;
+        this.height = height;
         NBTTagCompound encodedValue = is.getTagCompound();
         if (encodedValue == null) {
             throw new IllegalArgumentException("No pattern here!");
@@ -53,14 +58,22 @@ public abstract class UniversalPatternHelper implements ICraftingPatternDetails,
             List<IAEItemStack> out = new ArrayList();
 
             for(int x = 0; x < inTag.tagCount(); ++x) {
-                ItemStack gs = ItemStack.loadItemStackFromNBT(inTag.getCompoundTagAt(x));
-                this.crafting.setInventorySlotContents(x, gs);
+                IAEItemStack igs = AEItemStack.loadItemStackFromNBT(inTag.getCompoundTagAt(x));
+                ItemStack gs;
+                if (igs != null) {
+                    gs = igs.getItemStack();
+                } else {
+                    gs = null;
+                }
+                //ItemStack gs = ItemStack.loadItemStackFromNBT(inTag.getCompoundTagAt(x));
                 if (gs != null && (!this.isCrafting || !gs.hasTagCompound())) {
+                    this.crafting.setInventorySlotContents(x, gs);
                     this.markItemAs(x, gs, TestStatus.ACCEPT);
                 }
 
                 in.add(AEApi.instance().storage().createItemStack(gs));
                 this.testFrame.setInventorySlotContents(x, gs);
+
             }
             for(int x = 0; x < outTag.tagCount(); ++x) {
                 ItemStack gs = ItemStack.loadItemStackFromNBT(outTag.getCompoundTagAt(x));
@@ -69,7 +82,7 @@ public abstract class UniversalPatternHelper implements ICraftingPatternDetails,
                 }
             }
 
-            this.standardRecipe = findMatchingRecipeIn(this.crafting);
+            this.standardRecipe = findMatchingRecipe.findMatchingRecipe(this.crafting);
             correctOutput = standardRecipe.getOut();
 
             Objects.requireNonNull(out);
@@ -124,21 +137,6 @@ public abstract class UniversalPatternHelper implements ICraftingPatternDetails,
         }
     }
 
-    private IHellRecipe findMatchingRecipeIn(InventoryCrafting matrix) {
-        if(this instanceof ElvenTradePatternHelper) {
-            return ElvenTradePatternHelper.findMatchingRecipe(matrix);
-        }  else if(this instanceof InfusionPatternHellper) {
-            return InfusionPatternHellper.findMatchingRecipe(matrix);
-        } else if(this instanceof PetalsPatternHelper) {
-            return PetalsPatternHelper.findMatchingRecipe(matrix);
-        } else if(this instanceof PureDaisyPatternHelper) {
-            return PureDaisyPatternHelper.findMatchingRecipe(matrix);
-        } else if(this instanceof RuneAltalPatternHelper) {
-            return RuneAltalPatternHelper.findMatchingRecipe(matrix);
-        }
-        return null;
-    }
-
     private void markItemAs(int slotIndex, ItemStack i, TestStatus b) {
         if (b != TestStatus.TEST && !i.hasTagCompound()) {
             (b == TestStatus.ACCEPT ? this.passCache : this.failCache).add(new UniversalPatternHelper.TestLookup(slotIndex, i));
@@ -189,7 +187,7 @@ public abstract class UniversalPatternHelper implements ICraftingPatternDetails,
     }
 
     public boolean isCraftable() {
-        return false;
+        return isCraftable;
     }
 
     public IAEItemStack[] getInputs() {
@@ -309,9 +307,13 @@ public abstract class UniversalPatternHelper implements ICraftingPatternDetails,
         }
     }
 
-    abstract protected int getWidthInventory();
+    protected int getWidthInventory() {
+        return width;
+    }
 
-    abstract protected int getHeightInventory();
+    protected int getHeightInventory() {
+        return height;
+    }
 
 }
 

@@ -10,7 +10,6 @@ import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
 import foxiwhitee.hellmod.integration.botania.BotaniaIntegration;
 import foxiwhitee.hellmod.integration.botania.helpers.ManaRecipeHelper;
-import foxiwhitee.hellmod.integration.botania.helpers.RuneAltalPatternHelper;
 import foxiwhitee.hellmod.recipes.IHellRecipe;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -50,10 +49,9 @@ public class ContainerPartRuneAltarPatternTerminal extends ContainerManaPatternT
         mana.setStackSize(getManaCost());
         input[0] = mana;
         AEItemStack add = AEItemStack.create(new ItemStack(ModBlocks.livingrock));
-        mana.setStackSize(getManaCost());
         input[1] = add;
         for(int x = 2; x <= this.getInventoryCraftingSlots().length + 1; ++x) {
-            input[x] = AEItemStack.create(this.getInventoryCraftingSlots()[x].getStack());
+            input[x] = AEItemStack.create(this.getInventoryCraftingSlots()[x - 2].getStack());
             if (input[x] != null) {
                 hasValue = true;
             }

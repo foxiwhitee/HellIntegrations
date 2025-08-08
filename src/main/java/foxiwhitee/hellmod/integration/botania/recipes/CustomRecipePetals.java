@@ -31,7 +31,7 @@ public class CustomRecipePetals extends RecipePetals implements IBotaniaRecipe {
             if (stack == null) {
                 break;
             }
-            if(simpleAreStacksEqual(stack, new ItemStack(Items.wheat_seeds))) {
+            if(IBotaniaRecipe.super.simpleAreStacksEqual(stack, new ItemStack(Items.wheat_seeds))) {
                 continue;
             }
 
@@ -60,7 +60,7 @@ public class CustomRecipePetals extends RecipePetals implements IBotaniaRecipe {
                     if (found) {
                         break;
                     }
-                } else if (input instanceof ItemStack && this.simpleAreStacksEqual((ItemStack)input, stack)) {
+                } else if (input instanceof ItemStack && IBotaniaRecipe.super.simpleAreStacksEqual((ItemStack)input, stack)) {
                     stackIndex = j;
                     break;
                 }

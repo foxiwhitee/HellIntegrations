@@ -11,7 +11,6 @@ import foxiwhitee.hellmod.client.gui.terminals.GuiPatternTerminal;
 import foxiwhitee.hellmod.client.gui.widgets.CustomAEGuiButton;
 import foxiwhitee.hellmod.api.config.CustomAESetings;
 import foxiwhitee.hellmod.integration.thaumcraft.container.ContainerPartAlchemicalConstructionPatternTerminal;
-import foxiwhitee.hellmod.integration.thaumcraft.helpers.AlchemicalConstructionPatternHelper;
 import foxiwhitee.hellmod.network.NetworkManager;
 import foxiwhitee.hellmod.network.packets.DefaultPacket;
 import foxiwhitee.hellmod.integration.thaumcraft.recipes.IThaumcraftRecipe;
@@ -42,7 +41,6 @@ public class GuiPartAlchemicalConstructionPatternTerminal extends GuiPatternTerm
     private List crucibleRecipeList;
     private int crucibleRecipeIndex = -1;
     private Object[] tooltip = null;
-    private GuiImgButton clearBtn;
     private ItemStack lastInputStack;
     private byte recipeStatus = -1;
 
@@ -64,13 +62,7 @@ public class GuiPartAlchemicalConstructionPatternTerminal extends GuiPatternTerm
     @Override
     protected void actionPerformed(GuiButton btn) {
         super.actionPerformed(btn);
-        if (this.clearBtn == btn) {
-            try {
-                NetworkManager.instance.sendToServer(new DefaultPacket("PatternTerminal.Clear", "1"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        } else if (this.prevBtn == btn) {
+        if (this.prevBtn == btn) {
             if (this.crucibleRecipeList == null) {
                 return;
             }
@@ -106,10 +98,6 @@ public class GuiPartAlchemicalConstructionPatternTerminal extends GuiPatternTerm
     }
 
     public void drawFG(int offsetX, int offsetY, int mouseX, int mouseY) {
-        if (this.getContainer().getInventoryCrafting().getStackInSlot(0) == null && ((ContainerPartAlchemicalConstructionPatternTerminal)getContainer()).getOutputSlot().getStack() != null) {
-            this.actionPerformed(this.clearBtn);
-        }
-
         if (this.lastInputStack == null && this.getContainer().getInventoryCrafting().getStackInSlot(0) != null) {
             List crucibleRecipes = ((ContainerPartAlchemicalConstructionPatternTerminal)getContainer()).getRecipes(this.getContainer().getInventoryCrafting().getStackInSlot(0));
             if (crucibleRecipes.isEmpty()) {
@@ -136,7 +124,7 @@ public class GuiPartAlchemicalConstructionPatternTerminal extends GuiPatternTerm
                 return;
             }
 
-            this.drawRecipe(crucibleRecipe.getRecipeOutput(), mouseX, mouseY);
+            this.drawRecipe(crucibleRecipe/*.getRecipeOutput()*/, mouseX, mouseY);
         } else {
             this.getContainer().getTerminal().getInventoryOutput().setInventorySlotContents(0, null);
         }
@@ -151,9 +139,6 @@ public class GuiPartAlchemicalConstructionPatternTerminal extends GuiPatternTerm
 
     public void initGui() {
         super.initGui();
-        this.clearBtn = new GuiImgButton(this.guiLeft + 16 + 108 - 83, this.guiTop + this.ySize - 151, Settings.ACTIONS, ActionItems.CLOSE);
-        this.clearBtn.setHalfSize(true);
-        this.buttonList.add(this.clearBtn);
         this.prevBtn = new NoTextureAEButton(this.guiLeft + 395, this.guiTop + 118, CustomAESetings.CRAFT_DIRECTION, Buttons.PAST);
         this.buttonList.add(this.prevBtn);
         this.nextBtn = new NoTextureAEButton(this.guiLeft + 411, this.guiTop + 121, CustomAESetings.CRAFT_DIRECTION, Buttons.NEXT);
@@ -207,14 +192,14 @@ public class GuiPartAlchemicalConstructionPatternTerminal extends GuiPatternTerm
         this.tooltip = new Object[]{var4, par2, par3, subTipColor};
     }
 
-    private void drawRecipe(ItemStack stack, int mouseX, int mouseY) {
-        CrucibleRecipe recipe = (CrucibleRecipe) ((ContainerPartAlchemicalConstructionPatternTerminal)getContainer()).getRecipes(getContainer().getInventoryCrafting().getStackInSlot(0)).get(0);
+    private void drawRecipe(CrucibleRecipe recipe, int mouseX, int mouseY) {
+        //CrucibleRecipe recipe = (CrucibleRecipe) ((ContainerPartAlchemicalConstructionPatternTerminal)getContainer()).getRecipes(getContainer().getInventoryCrafting().getStackInSlot(0)).get(0);
         if (recipe != null) {
-            if (simpleAreStacksEqual(stack, recipe.getRecipeOutput())) {
+            //if (simpleAreStacksEqual(stack, recipe.getRecipeOutput())) {
                 if (((ContainerPartAlchemicalConstructionPatternTerminal) getContainer()).getOutputSlot().getStack() != null) {
                     this.drawVis(recipe, mouseX, mouseY);
                 }
-            }
+            //}
         }
     }
 

@@ -6,7 +6,6 @@ import appeng.container.slot.SlotFakeCraftingMatrix;
 import foxiwhitee.hellmod.HellCore;
 import foxiwhitee.hellmod.client.gui.terminals.GuiPatternTerminal;
 import foxiwhitee.hellmod.integration.thaumcraft.container.ContainerPartInfusionPatternTerminal;
-import foxiwhitee.hellmod.integration.thaumcraft.helpers.InfusionPatternHellper;
 import foxiwhitee.hellmod.integration.thaumcraft.recipes.IThaumcraftRecipe;
 import foxiwhitee.hellmod.utils.helpers.UtilGui;
 import net.minecraft.client.gui.FontRenderer;

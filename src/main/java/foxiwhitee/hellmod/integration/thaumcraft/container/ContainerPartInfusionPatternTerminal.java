@@ -6,9 +6,9 @@ import appeng.container.slot.SlotRestrictedInput;
 import appeng.helpers.InventoryAction;
 import appeng.tile.inventory.AppEngInternalInventory;
 import appeng.tile.inventory.IAEAppEngInventory;
+import appeng.util.item.AEItemStack;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
-import foxiwhitee.hellmod.integration.thaumcraft.helpers.InfusionPatternHellper;
 import foxiwhitee.hellmod.integration.thaumcraft.ThaumcraftIntegration;
 import foxiwhitee.hellmod.integration.thaumcraft.parts.PartInfusionPatternTerminal;
 import foxiwhitee.hellmod.recipes.IHellRecipe;
@@ -49,10 +49,29 @@ public class ContainerPartInfusionPatternTerminal extends ContainerPatternTermin
 
     }
 
+    @Override
+    public AEItemStack[] getInputs() {
+        AEItemStack[] input = new AEItemStack[this.getInventoryCraftingSlots().length + 1];
+        boolean hasValue = false;
+        input[0] = AEItemStack.create(coreSlots[0].getStack());
+        for(int x = 1; x < this.getInventoryCraftingSlots().length + 1; ++x) {
+            input[x] = AEItemStack.create(this.getInventoryCraftingSlots()[x - 1].getStack());
+            if (input[x] != null) {
+                hasValue = true;
+            }
+        }
+
+        if (hasValue) {
+            return input;
+        } else {
+            return null;
+        }
+    }
+
     public void doAction(EntityPlayerMP player, InventoryAction action, int slot, long id) {
         if (slot >= 0 && slot < this.inventorySlots.size()) {
             Slot s = this.getSlot(slot);
-            if (s instanceof SlotFakeCraftingMatrix) {
+            if (s instanceof SlotFakeCraftingMatrix && slot != 38) {
                 ItemStack hand = player != null ? player.inventory.getItemStack() : null;
                 switch (action) {
                     case PICKUP_OR_SET_DOWN:
@@ -118,4 +137,9 @@ public class ContainerPartInfusionPatternTerminal extends ContainerPatternTermin
         return ThaumcraftIntegration.INFUSION_PATTERN;
     }
 
+    @Override
+    public void clear() {
+        super.clear();
+        coreSlots[0].putStack(null);
+    }
 }

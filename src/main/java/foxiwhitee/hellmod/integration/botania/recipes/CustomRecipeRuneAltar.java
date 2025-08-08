@@ -1,5 +1,6 @@
 package foxiwhitee.hellmod.integration.botania.recipes;
 
+import foxiwhitee.hellmod.recipes.IHellRecipe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import vazkii.botania.api.recipe.RecipeRuneAltar;
@@ -31,7 +32,7 @@ public class CustomRecipeRuneAltar extends RecipeRuneAltar implements IBotaniaMa
             if (stack == null) {
                 break;
             }
-            if(simpleAreStacksEqual(stack, new ItemStack(ModBlocks.livingrock))) {
+            if(IBotaniaManaRecipe.super.simpleAreStacksEqual(stack, new ItemStack(ModBlocks.livingrock))) {
                 continue;
             }
 
@@ -60,7 +61,7 @@ public class CustomRecipeRuneAltar extends RecipeRuneAltar implements IBotaniaMa
                     if (found) {
                         break;
                     }
-                } else if (input instanceof ItemStack && this.simpleAreStacksEqual((ItemStack)input, stack)) {
+                } else if (input instanceof ItemStack && IBotaniaManaRecipe.super.simpleAreStacksEqual((ItemStack)input, stack)) {
                     stackIndex = j;
                     break;
                 }

@@ -22,7 +22,13 @@ import cpw.mods.fml.common.eventhandler.Event;
 import java.util.ArrayList;
 import java.util.List;
 
-import foxiwhitee.hellmod.integration.avaritia.helpers.BigPatternHelper;
+import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
+import fox.spiteful.avaritia.crafting.ExtremeShapedOreRecipe;
+import fox.spiteful.avaritia.crafting.ExtremeShapedRecipe;
+import fox.spiteful.avaritia.crafting.ExtremeShapelessRecipe;
+import foxiwhitee.hellmod.integration.avaritia.recipes.CustomExtremeShapedOreRecipe;
+import foxiwhitee.hellmod.integration.avaritia.recipes.CustomExtremeShapedRecipe;
+import foxiwhitee.hellmod.integration.avaritia.recipes.CustomExtremeShapelessRecipe;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -30,6 +36,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
 
@@ -140,7 +147,7 @@ public class SlotCraftingTermExtended extends SlotCraftingTerm {
                 InventoryCrafting ic = new InventoryCrafting((Container)new ContainerNull(), this.width, this.height);
                 for (int x = 0; x < this.width * this.height; x++)
                     ic.setInventorySlotContents(x, getPattern().getStackInSlot(x));
-                IRecipe r = BigPatternHelper.findMatchingRecipe(ic, p.worldObj);
+                IRecipe r = findMatchingRecipe(ic, p.worldObj);
                 if (r == null) {
                     Item target = request.getItem();
                     if (target.isDamageable() && target.isRepairable()) {
@@ -174,6 +181,32 @@ public class SlotCraftingTermExtended extends SlotCraftingTerm {
             }
             p.openContainer.onCraftMatrixChanged(this.craftInv1);
             return is;
+        }
+        return null;
+    }
+
+    private IRecipe findMatchingRecipe(InventoryCrafting ic, World worldObj) {
+        int i = 0;
+        ItemStack itemstack = null;
+        ItemStack itemstack1 = null;
+        int j;
+        for (j = 0; j < ic.getSizeInventory(); j++) {
+            ItemStack itemstack2 = ic.getStackInSlot(j);
+            if (itemstack2 != null) {
+                if (i == 0)
+                    itemstack = itemstack2;
+                if (i == 1)
+                    itemstack1 = itemstack2;
+                i++;
+            }
+        }
+        if (i == 2 && itemstack.getItem() == itemstack1.getItem() && itemstack.stackSize == 1 && itemstack1.stackSize == 1 && itemstack.getItem()
+                .isRepairable())
+            return null;
+        for (j = 0; j < ExtremeCraftingManager.getInstance().getRecipeList().size(); j++) {
+            IRecipe irecipe = (IRecipe) ExtremeCraftingManager.getInstance().getRecipeList().get(j);
+            if (irecipe.matches(ic, worldObj))
+                return irecipe;
         }
         return null;
     }

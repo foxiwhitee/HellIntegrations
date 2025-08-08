@@ -18,7 +18,8 @@ public enum EnumPartsAvaritiaTerminals {
     InvalidTypeAvaritia(-1, EnumSet.of(AEFeature.Core), EnumSet.noneOf(IntegrationType.class), (Class)null),
     PART_BIG_PATTERN_TERMINAL(0, EnumSet.of(AEFeature.Core), EnumSet.noneOf(IntegrationType.class), (Class) PartBigPatternTerminal.class),
     PART_CRAFTING_TERMINAL_9X9(1, EnumSet.of(AEFeature.Core), EnumSet.noneOf(IntegrationType.class), (Class) PartCraftingTerminal9x9.class),
-    PART_NEUTRON_COMPRESSOR_PATTERN_TERMINAL(2, EnumSet.of(AEFeature.Core), EnumSet.noneOf(IntegrationType.class), PartNeutronCompressorPatternTerminal.class);
+    PART_NEUTRON_COMPRESSOR_PATTERN_TERMINAL(2, EnumSet.of(AEFeature.Core), EnumSet.noneOf(IntegrationType.class), PartNeutronCompressorPatternTerminal.class),
+    PART_BIG_PROCESSING_PATTERN_TERMINAL(3, EnumSet.of(AEFeature.Core), EnumSet.noneOf(IntegrationType.class), PartBigProcessingPatternTerminal.class);
 
     private final int baseDamage;
     private final Set<AEFeature> features;

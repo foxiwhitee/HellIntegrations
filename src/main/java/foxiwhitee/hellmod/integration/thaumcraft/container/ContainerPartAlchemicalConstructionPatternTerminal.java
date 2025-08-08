@@ -8,7 +8,6 @@ import appeng.tile.inventory.IAEAppEngInventory;
 import appeng.util.Platform;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
-import foxiwhitee.hellmod.integration.thaumcraft.helpers.AlchemicalConstructionPatternHelper;
 import foxiwhitee.hellmod.integration.thaumcraft.ThaumcraftIntegration;
 import foxiwhitee.hellmod.integration.thaumcraft.helpers.ThaumcraftRecipeHelper;
 import foxiwhitee.hellmod.network.NetworkManager;
@@ -61,7 +60,8 @@ public class ContainerPartAlchemicalConstructionPatternTerminal extends Containe
         this.craftingIndex = id;
         List crucibleRecipeList = this.getRecipes(this.getInventoryCrafting().getStackInSlot(0));
         if (!crucibleRecipeList.isEmpty()) {
-            this.getOutputSlot().putStack(((CrucibleRecipe)crucibleRecipeList.get(this.craftingIndex)).getRecipeOutput());
+            ItemStack out = ((CrucibleRecipe)crucibleRecipeList.get(this.craftingIndex)).getRecipeOutput();
+            this.getOutputSlot().putStack(out);
         }
     }
 

@@ -11,7 +11,6 @@ import appeng.util.item.AEItemStack;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
 import foxiwhitee.hellmod.integration.botania.BotaniaIntegration;
-import foxiwhitee.hellmod.integration.botania.helpers.PetalsPatternHelper;
 import foxiwhitee.hellmod.recipes.IHellRecipe;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -113,7 +112,7 @@ public class ContainerPartPetalsPatternTerminal extends ContainerPatternTerminal
         AEItemStack add = AEItemStack.create(new ItemStack(Items.wheat_seeds));
         input[0] = add;
         for(int x = 1; x <= this.getInventoryCraftingSlots().length; ++x) {
-            input[x] = AEItemStack.create(this.getInventoryCraftingSlots()[x].getStack());
+            input[x] = AEItemStack.create(this.getInventoryCraftingSlots()[x - 1].getStack());
             if (input[x] != null) {
                 hasValue = true;
             }

@@ -12,7 +12,6 @@ import fox.spiteful.avaritia.crafting.CompressorRecipe;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
 import foxiwhitee.hellmod.integration.avaritia.AvaritiaIntegration;
-import foxiwhitee.hellmod.integration.avaritia.helpers.NeutronPatternHelper;
 import foxiwhitee.hellmod.recipes.IHellRecipe;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;

@@ -3,6 +3,7 @@ package foxiwhitee.hellmod.container.terminals;
 import appeng.api.AEApi;
 import appeng.api.definitions.IDefinitions;
 import appeng.api.storage.ITerminalHost;
+import appeng.container.guisync.GuiSync;
 import appeng.container.slot.OptionalSlotFake;
 import appeng.container.slot.SlotFakeCraftingMatrix;
 import appeng.container.slot.SlotRestrictedInput;
@@ -27,7 +28,11 @@ public abstract class ContainerPatternTerminal extends ContainerTerminal {
     protected final IInventory crafting;
     protected final IInventory patternInv;
     protected final IInventory output;
+    @GuiSync(97)
+    public boolean craftingMode = false;
 
+    @GuiSync(96)
+    public boolean substitute = false;
     public ContainerPatternTerminal(InventoryPlayer ip, ITerminalHost host) {
         super(ip, host);
         this.patternInv = this.getTerminal().getInventoryByName("pattern");
@@ -167,7 +172,6 @@ public abstract class ContainerPatternTerminal extends ContainerTerminal {
     }
 
     abstract protected SlotFakeCraftingMatrix[] getInventoryCraftingSlots();
-
 
     protected IInventory getInventoryOut() {
         return output;

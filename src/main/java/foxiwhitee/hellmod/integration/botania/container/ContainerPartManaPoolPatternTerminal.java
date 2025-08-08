@@ -11,7 +11,6 @@ import appeng.util.Platform;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
 import foxiwhitee.hellmod.integration.botania.BotaniaIntegration;
-import foxiwhitee.hellmod.integration.botania.helpers.ManaPoolPatternHelper;
 import foxiwhitee.hellmod.integration.botania.helpers.ManaRecipeHelper;
 import foxiwhitee.hellmod.integration.botania.parts.PartManaPoolPatternTerminal;
 import foxiwhitee.hellmod.network.NetworkManager;

@@ -65,6 +65,7 @@ public class CustomInfusionRecipe extends InfusionRecipe implements IThaumcraftR
                 }
             }
         }
+        ItemStack recipeInput = this.getRecipeInput();
         if (this.getRecipeInput() == null) {
             return false;
         } else if (base != null && !stacksCopy.isEmpty()) {

@@ -11,7 +11,6 @@ import appeng.tile.inventory.IAEAppEngInventory;
 import appeng.tile.inventory.InvOperation;
 import foxiwhitee.hellmod.container.slots.SlotCraftingTermExtended;
 import foxiwhitee.hellmod.container.terminals.ContainerTerminal;
-import foxiwhitee.hellmod.integration.avaritia.helpers.BigPatternHelper;
 import foxiwhitee.hellmod.integration.avaritia.parts.PartCraftingTerminal9x9;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

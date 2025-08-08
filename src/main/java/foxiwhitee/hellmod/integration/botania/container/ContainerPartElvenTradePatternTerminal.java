@@ -10,7 +10,6 @@ import foxiwhitee.hellmod.ModItems;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
 import foxiwhitee.hellmod.integration.botania.BotaniaIntegration;
-import foxiwhitee.hellmod.integration.botania.helpers.ElvenTradePatternHelper;
 import foxiwhitee.hellmod.recipes.IHellRecipe;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;

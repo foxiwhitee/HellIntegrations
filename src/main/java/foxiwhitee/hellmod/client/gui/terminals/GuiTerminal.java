@@ -1,8 +1,6 @@
 package foxiwhitee.hellmod.client.gui.terminals;
 
-import appeng.api.config.SearchBoxMode;
-import appeng.api.config.Settings;
-import appeng.api.config.TerminalStyle;
+import appeng.api.config.*;
 import appeng.api.implementations.guiobjects.IPortableCell;
 import appeng.api.implementations.tiles.IMEChest;
 import appeng.api.storage.ITerminalHost;
@@ -11,6 +9,7 @@ import appeng.api.util.IConfigManager;
 import appeng.api.util.IConfigurableObject;
 import appeng.client.gui.AEBaseGui;
 import appeng.client.gui.AEBaseMEGui;
+import appeng.client.gui.widgets.GuiImgButton;
 import appeng.client.gui.widgets.GuiTabButton;
 import appeng.client.gui.widgets.ISortSource;
 import appeng.client.gui.widgets.MEGuiTextField;
@@ -23,6 +22,7 @@ import appeng.container.slot.SlotFakeCraftingMatrix;
 import appeng.core.AEConfig;
 import appeng.core.AELog;
 import appeng.core.localization.GuiText;
+import appeng.core.sync.AppEngPacket;
 import appeng.core.sync.GuiBridge;
 import appeng.core.sync.network.NetworkHandler;
 import appeng.core.sync.packets.PacketSwitchGuis;
@@ -35,8 +35,14 @@ import appeng.tile.misc.TileSecurity;
 import appeng.util.IConfigManagerHost;
 import appeng.util.Platform;
 import foxiwhitee.hellmod.HellCore;
+import foxiwhitee.hellmod.client.gui.buttons.CustomGuiTabButton;
 import foxiwhitee.hellmod.client.gui.widgets.CustomGuiImgButton;
 import foxiwhitee.hellmod.client.gui.widgets.CustomGuiScrollbar;
+import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
+import foxiwhitee.hellmod.integration.avaritia.container.ContainerPartBigProcessingPatternTerminal;
+import foxiwhitee.hellmod.network.BasePacket;
+import foxiwhitee.hellmod.network.NetworkManager;
+import foxiwhitee.hellmod.network.packets.DefaultPacket;
 import foxiwhitee.hellmod.utils.craft.IGuiMEMonitorableAccessor;
 import foxiwhitee.hellmod.utils.helpers.UtilGui;
 import net.minecraft.client.gui.GuiButton;
@@ -55,18 +61,13 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
     public static int craftingGridOffsetY;
     private static String memoryText = "";
     private final ItemRepo repo;
-    private final int offsetX;
-    private final int lowerTextureOffset;
     protected final IConfigManager configSrc;
     private final ContainerMEMonitorable container;
-    private GuiTabButton craftingStatusBtn;
     protected MEGuiTextField searchField;
     private GuiText myName;
     private int perRow;
     private int reservedSpace;
     private boolean customSortOrder;
-    private int rows;
-    private int maxRows;
     private int standardSize;
     private CustomGuiImgButton ViewBox;
     private CustomGuiImgButton SortByBox;
@@ -74,6 +75,11 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
     private CustomGuiImgButton searchBoxSettings;
     protected int offset;
     boolean hasFG = true;
+    private CustomGuiImgButton substitutionsEnabledBtn;
+    private CustomGuiImgButton substitutionsDisabledBtn;
+    private CustomGuiImgButton clearBtn;
+    private CustomGuiTabButton craftingStatusBtn;
+    protected boolean hasSubstitutions = false;
 
     public GuiTerminal(InventoryPlayer inventoryPlayer, ITerminalHost te) {
         this(inventoryPlayer, te, new ContainerMEMonitorable(inventoryPlayer, te), 185, 204);
@@ -87,13 +93,9 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
         super(c);
         this.xSize = xSize;
         this.ySize = ySize;
-        this.offsetX = 9;
-        this.lowerTextureOffset = 0;
         this.perRow = 9;
         this.reservedSpace = 0;
         this.customSortOrder = true;
-        this.rows = 5;
-        this.maxRows = Integer.MAX_VALUE;
         CustomGuiScrollbar scrollbar = getCustomGuiScrollbar();
         this.setScrollBar(scrollbar);
         this.repo = new ItemRepo(scrollbar, this);
@@ -118,7 +120,7 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
         String state = this.getStates();
         return new CustomGuiScrollbar() {
             public void draw(AEBaseGui g) {
-                g.bindTexture(HellCore.MODID, state);
+                g.bindTexture("appliedenergistics2", state);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 if (this.getRange() == 0) {
                     g.drawTexturedModalRect(this.displayX, this.displayY, 144 + this.width, 0, this.width, 15);
@@ -145,8 +147,15 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
     }
 
     protected void actionPerformed(GuiButton btn) {
-        if (btn == this.craftingStatusBtn) {
-            NetworkHandler.instance.sendToServer(new PacketSwitchGuis(GuiBridge.GUI_CRAFTING_STATUS));
+        if (btn == this.craftingStatusBtn)
+            NetworkHandler.instance.sendToServer((AppEngPacket)new PacketSwitchGuis(GuiBridge.GUI_CRAFTING_STATUS));
+        try {
+            if (this.clearBtn == btn)
+                NetworkManager.instance.sendToServer((BasePacket)new DefaultPacket("PatternTerminal.Clear", "1"));
+            if (this.substitutionsEnabledBtn == btn || this.substitutionsDisabledBtn == btn)
+                NetworkManager.instance.sendToServer((BasePacket)new DefaultPacket("PatternTerminal.Substitute", (this.substitutionsEnabledBtn == btn) ? "0" : "1"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         if (btn instanceof CustomGuiImgButton) {
@@ -189,10 +198,8 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
 
     public void initGui() {
         Keyboard.enableRepeatEvents(true);
-        this.maxRows = this.getMaxRows();
         this.perRow = AEConfig.instance.getConfigManager().getSetting(Settings.TERMINAL_STYLE) != TerminalStyle.FULL ? 9 : 9 + (this.width - this.standardSize) / 18;
         boolean hasNEI = IntegrationRegistry.INSTANCE.isEnabled(IntegrationType.NEI);
-        int top = hasNEI ? 22 : 0;
         this.getMeSlots().clear();
         List<InternalSlotME> slotsME;
         for (int y = 0; y < 5; ++y) {
@@ -222,11 +229,26 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
         this.offset += 16;
         this.buttonList.add(this.searchBoxSettings = new CustomGuiImgButton(this.getStates(), this.guiLeft + 216 + this.getBtnShiftX(), this.offset, Settings.SEARCH_MODE, AEConfig.instance.settings.getSetting(Settings.SEARCH_MODE)) );
         this.offset += 16;
-        this.searchField = new MEGuiTextField(this.fontRendererObj, this.guiLeft + Math.max(96, 9), this.guiTop + 4 + 15, 90, 12);
+        this.searchField = new MEGuiTextField(this.fontRendererObj, this.guiLeft + 26, this.guiTop + 26, 160, 12);
         this.searchField.setEnableBackgroundDrawing(false);
-        this.searchField.setMaxStringLength(25);
+        this.searchField.setMaxStringLength(100);
         this.searchField.setTextColor(16777215);
         this.searchField.setVisible(true);
+
+        this.buttonList.add(this.craftingStatusBtn = new CustomGuiTabButton(this.getStates(), this.guiLeft + 237, this.guiTop + 50, 178, GuiText.CraftingStatus.getLocal(), itemRender));
+        this.craftingStatusBtn.setHideEdge(13);
+        if (hasSubstitutions) {
+            this.substitutionsEnabledBtn = new CustomGuiImgButton(this.getStates(), this.guiLeft + 249, this.guiTop + 78, (Enum) Settings.ACTIONS, (Enum) ItemSubstitution.ENABLED);
+            this.substitutionsEnabledBtn.setHalfSize(true);
+            this.buttonList.add(this.substitutionsEnabledBtn);
+            this.substitutionsDisabledBtn = new CustomGuiImgButton(this.getStates(), this.guiLeft + 249, this.guiTop + 78, (Enum) Settings.ACTIONS, (Enum) ItemSubstitution.DISABLED);
+            this.substitutionsDisabledBtn.setHalfSize(true);
+            this.buttonList.add(this.substitutionsDisabledBtn);
+        }
+        this.clearBtn = new CustomGuiImgButton(this.getStates(), this.guiLeft + 239, this.guiTop + 78, (Enum)Settings.ACTIONS, (Enum) ActionItems.CLOSE);
+        this.clearBtn.setHalfSize(true);
+
+        this.buttonList.add(this.clearBtn);
         Enum<?> setting = AEConfig.instance.settings.getSetting(Settings.SEARCH_MODE);
         this.searchField.setFocused(SearchBoxMode.AUTOSEARCH == setting || SearchBoxMode.NEI_AUTOSEARCH == setting);
         if (this.isSubGui()) {
@@ -261,6 +283,15 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
         if (hasFG) {
             this.fontRendererObj.drawString(this.getGuiDisplayName(this.myName.getLocal()), 8, 6, 4210752);
             this.fontRendererObj.drawString(GuiText.inventory.getLocal(), 8, this.ySize - 96 + 3, 4210752);
+        }
+        if (hasSubstitutions) {
+            if (((ContainerPatternTerminal) getContainer()).substitute) {
+                this.substitutionsEnabledBtn.visible = true;
+                this.substitutionsDisabledBtn.visible = false;
+            } else {
+                this.substitutionsEnabledBtn.visible = false;
+                this.substitutionsDisabledBtn.visible = true;
+            }
         }
     }
 
@@ -298,6 +329,10 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
 
     protected String getBackground() {
         return "guis/terminal.png";
+    }
+
+    protected ResourceLocation getBackgroundLocation() {
+        return new ResourceLocation(HellCore.MODID, "textures/" + getBackground());
     }
 
     protected boolean isPowered() {
@@ -406,6 +441,10 @@ public class GuiTerminal extends AEBaseMEGui implements ISortSource, IConfigMana
 
     public void bindTexture(String file) {
         ResourceLocation loc = new ResourceLocation(HellCore.MODID, "textures/" + file);
+        this.mc.getTextureManager().bindTexture(loc);
+    }
+
+    public void bindTexture(ResourceLocation loc) {
         this.mc.getTextureManager().bindTexture(loc);
     }
 }

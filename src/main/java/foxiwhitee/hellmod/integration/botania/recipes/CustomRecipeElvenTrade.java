@@ -41,13 +41,13 @@ public class CustomRecipeElvenTrade extends RecipeElvenTrade implements IBotania
             for (int i = 0; i < ins.size(); i++) {
                 Object input = ins.get(i);
 
-                if (input instanceof ItemStack && simpleAreStacksEqual((ItemStack) input, stack)) {
+                if (input instanceof ItemStack && IBotaniaManaRecipe.super.simpleAreStacksEqual((ItemStack) input, stack)) {
                     ins.remove(i);
                     stacksCopy.remove(stack);
                     break;
                 } else if (input instanceof String) {
                     for (ItemStack itemStack : OreDictionary.getOres((String) input)) {
-                        if (simpleAreStacksEqual(itemStack, stack)) {
+                        if (IBotaniaManaRecipe.super.simpleAreStacksEqual(itemStack, stack)) {
                             ins.remove(i);
                             stacksCopy.remove(stack);
                             break;

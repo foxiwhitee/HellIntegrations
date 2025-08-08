@@ -1,14 +1,12 @@
 package foxiwhitee.hellmod.integration.avaritia.container;
 
 
-import appeng.api.storage.IStorageMonitorable;
 import appeng.api.storage.ITerminalHost;
 import appeng.container.guisync.GuiSync;
-import appeng.container.slot.*;
-import appeng.tile.inventory.AppEngInternalInventory;
+import appeng.container.slot.OptionalSlotFake;
+import appeng.container.slot.SlotFakeCraftingMatrix;
 import appeng.util.Platform;
 import appeng.util.item.AEItemStack;
-import foxiwhitee.hellmod.container.slots.CustomSlotPatternOutputs;
 import foxiwhitee.hellmod.container.slots.CustomSlotPatternTerm;
 import foxiwhitee.hellmod.container.terminals.ContainerPatternTerminal;
 import foxiwhitee.hellmod.integration.avaritia.AvaritiaIntegration;
@@ -17,28 +15,25 @@ import foxiwhitee.hellmod.network.NetworkManager;
 import foxiwhitee.hellmod.network.packets.DefaultPacket;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import org.lwjgl.Sys;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ContainerPartBigPatternTerminal extends ContainerPatternTerminal {
+public class ContainerPartBigProcessingPatternTerminal extends ContainerPatternTerminal {
 
     private final SlotFakeCraftingMatrix[] craftingSlots = new SlotFakeCraftingMatrix[81];
-    private final CustomSlotPatternTerm outputSlot;
+    private final SlotFakeCraftingMatrix[] outputSlots = new SlotFakeCraftingMatrix[3];
 
-    public ContainerPartBigPatternTerminal(InventoryPlayer ip, ITerminalHost host) {
+    public ContainerPartBigProcessingPatternTerminal(InventoryPlayer ip, ITerminalHost host) {
         super(ip, host);
-        this.craftingMode = true;
         int y;
         for(y = 0; y < 9; ++y) {
             for(int j = 0; j < 9; ++j) {
@@ -46,8 +41,9 @@ public class ContainerPartBigPatternTerminal extends ContainerPatternTerminal {
             }
         }
 
-        this.addSlotToContainer(this.outputSlot = new CustomSlotPatternTerm(ip.player, this.getActionSource(), this.getPowerSource(), host, this.crafting, patternInv, this.getInventoryOut(), 424, 203, this, 2, this));
-        this.outputSlot.setIIcon(-1);
+        for(y = 0; y < 3; ++y) {
+            this.addSlotToContainer(this.outputSlots[y] = new SlotFakeCraftingMatrix(output, y, 406 + y * 18, 203));
+        }
 
     }
 
@@ -105,14 +101,33 @@ public class ContainerPartBigPatternTerminal extends ContainerPatternTerminal {
     }
 
     @Override
-    public void detectAndSendChanges() {
-        super.detectAndSendChanges();
-        if (Platform.isServer()) {
-            if (isCraftingMode() != getTerminal().isCraftingRecipe()) {
-                setCraftingMode(getTerminal().isCraftingRecipe());
+    protected ItemStack[] getOutputs() {
+        if (this.isCraftingMode()) {
+            ItemStack out = this.getInventoryOut().getStackInSlot(0);
+            if (out != null && out.stackSize > 0) {
+                return new ItemStack[]{out};
             }
-            this.substitute = this.getTerminal().isSubstitution();
+        } else {
+            List list = new ArrayList(3);
+            boolean hasValue = false;
+            SlotFakeCraftingMatrix[] var3 = this.outputSlots;
+            int var4 = var3.length;
+
+            for(int var5 = 0; var5 < var4; ++var5) {
+                SlotFakeCraftingMatrix outputSlot = var3[var5];
+                ItemStack out = outputSlot.getStack();
+                if (out != null && out.stackSize > 0) {
+                    list.add(out);
+                    hasValue = true;
+                }
+            }
+
+            if (hasValue) {
+                return (ItemStack[])list.toArray(new ItemStack[list.size()]);
+            }
         }
+
+        return null;
     }
 
     @Override
@@ -146,8 +161,17 @@ public class ContainerPartBigPatternTerminal extends ContainerPatternTerminal {
     }
 
     @Override
+    public void clear() {
+        for (SlotFakeCraftingMatrix slotFakeCraftingMatrix : this.craftingSlots)
+            slotFakeCraftingMatrix.putStack(null);
+        for (SlotFakeCraftingMatrix optionalSlotFake : this.outputSlots)
+            optionalSlotFake.putStack(null);
+        detectAndSendChanges();
+    }
+
+    @Override
     protected Item getPattern() {
-        return AvaritiaIntegration.BIG_PATTERN;
+        return AvaritiaIntegration.BIG_PROCESSING_PATTERN;
     }
 
     @Override

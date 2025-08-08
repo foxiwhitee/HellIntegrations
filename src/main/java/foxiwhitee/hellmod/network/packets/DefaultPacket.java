@@ -73,13 +73,13 @@ public class DefaultPacket extends BasePacket {
                         cpt.receiveEventId(Byte.parseByte(this.packetValue));
                     }
                     break;
+                case "PatternTerminal.Substitute":
+                    terminal.getTerminal().setSubstitution(packetValue.equals("1"));
+                    break;
             }
         } else if (packetName.startsWith("BigPatternTerminal.") && container instanceof ContainerPartBigPatternTerminal) {
             ContainerPartBigPatternTerminal terminal = (ContainerPartBigPatternTerminal) container;
             switch (packetName) {
-                case "BigPatternTerminal.CraftMode":
-                    (terminal.getTerminal()).setCraftingRecipe(packetValue.equals("1"));
-                    break;
                 case "BigPatternTerminal.Encode":
                     terminal.encode();
                     break;
@@ -110,9 +110,6 @@ public class DefaultPacket extends BasePacket {
     @Override
     public void handleClientSide(INetworkInfo network, BasePacket packet, EntityPlayer player) {
         Container container = player.openContainer;
-        if (container instanceof ContainerPartBigPatternTerminal && packetName.equals("BigPatternTerminal.CraftMode")) {
-            ((ContainerPartBigPatternTerminal)container).updateOrderOfOutputSlots();
-        }
         if (packetName.equals("CustomName") && container instanceof AEBaseContainer) {
             ((AEBaseContainer) container).setCustomName(packetValue);
         } else if (packetName.startsWith("SyncDat.") && container instanceof AEBaseContainer) {
